@@ -17,8 +17,7 @@ module.exports = (sequelize) => {
     },
 
     image:{
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
 
     hp:{
@@ -45,10 +44,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
 
-    type:{
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      defaultValue: []
-    }
+    // type:{
+    //   type: DataTypes.ARRAY(DataTypes.STRING),
+    //   defaultValue: ["nada"]
+    // }
     
-  });
+  },{timestamps: false});
 };
