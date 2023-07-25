@@ -41,3 +41,21 @@ const routePostPok = async (req, res) => {
 module.exports = {
   routePostPok,
 };
+
+
+/*
+{
+	"name": "diego",
+	"image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
+	"hp": 100,
+	"attack": 100,
+	"defense": 100,
+	"speed": 100,
+	"height": 100,
+	"weight": 100,
+	"types": [		
+			"shadow",
+			"unknown"		
+	]
+}
+*/

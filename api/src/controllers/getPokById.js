@@ -28,7 +28,7 @@ const getPokById = async (id) => {
     }
   } catch (error) {
     console.log(error);
-    return error.message
+    return error
   }
 };
 

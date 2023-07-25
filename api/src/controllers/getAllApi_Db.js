@@ -16,30 +16,45 @@ const objectApi = (pokemon) => {
     height: pokemon.height,
     weight: pokemon.weight,
     types: pokemon.types.map((pok) => {return {name: pok.type.name}}),
-      // pokemon.types.length < 2
-      //   ? [{ name: pokemon.types[0].type.name }]
-      //   : [{ name: pokemon.types[0].type.name },
-      //       { name: pokemon.types[1].type.name },],
-          };
+  };
   return objectApi;
 };
 
 const getAllPokAPI = async () => {
   try {
-    const firsReq = await axios.get(`${URL_API}?limit=1`);
-    const secondReq = firsReq.data.results.map((obj) => axios.get(obj.url));
-    const dataPokemons = await axios.all(secondReq);
+    const firstReq = await axios.get(`${URL_API}?limit=10`);
+    const secondReq = firstReq.data.results.map((obj) => axios.get(obj.url));
+    const dataPokemons = await Promise.all(secondReq);
     let pokemons = dataPokemons.map((obj) => obj.data);
     // console.log(pokemons)
     //obtengo la data de cada pokemon por su suburl
-    let allPokemons = pokemons.map((pokemon) => objectApi(pokemon));
+    const allPokemonsAPI = pokemons.map((pokemon) => objectApi(pokemon));
     // console.log(allPokemons)
-    return allPokemons;
+    return allPokemonsAPI;
+
   } catch (error) {
     console.log(error);
     return error;
   }
 };
+
+// const getAllPokAPI = () => {
+//   return new Promise((resolve, reject)=>{
+//     axios.get(`${URL_API}?limit=1`)
+//     .then((firstReq)=>{
+//       const secondReq = firstReq.data.results.map((obj) => axios.get(obj.url));
+//       return Promise.all(secondReq)
+//     })
+//     .then((dataPokemons)=>{
+//       let pokemons = dataPokemons.map((obj) => obj.data)
+//       const allPokemonsAPI = pokemons.map((pok)=> objectApi(pok))
+//       resolve(allPokemonsAPI)
+//     })
+//     .catch((error)=>{
+//       reject(error)
+//     })
+//   })
+// }
 
 const getAllPokDB = async () => { 
   try {

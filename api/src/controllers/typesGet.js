@@ -19,15 +19,15 @@ const typesGet = async () => {
       let createTypesDB = typesAPI.data.results.map((type) => Type.create({ name: type.name })); 
       
       // console.log(createTypesDB)
-      createTypesDB = await axios.all(createTypesDB);
+      createTypesDB = await Promise.all(createTypesDB);
 
       const getTypesAPI = arrayTypes(createTypesDB);
-      // console.log("API");
+      console.log("API");
       return getTypesAPI;
       
     } else {
         const getTypesDB = arrayTypes(typesDB);
-        // console.log('DB')
+        console.log('DB')
         return getTypesDB;
     }
   } catch (error) {

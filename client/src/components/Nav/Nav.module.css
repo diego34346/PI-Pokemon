@@ -1,0 +1,9 @@
+.nav {
+  background-color: #0d2944;
+  display: flex;
+  flex-wrap: wrap; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; 
+  height: 90px;
+}
