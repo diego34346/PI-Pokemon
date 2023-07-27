@@ -84,22 +84,6 @@ const Search = ({ setCurrentPok }) => {
 export default Search;
 
 
-// import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useState, useEffect } from "react";
-// import { getByNameById } from "../../redux/actions";
-// import style from "./Search.module.css";
-
-// const Search = ({ setCurrentPok }) => {
-//   const dispatch = useDispatch();
-//   const pokFilter = useSelector((state) => state.pokemonFilter);
-//   const [inputValue, setInputValue] = useState("");
-
-//   // console.log(pokFilter);
-
-//   const handleChange = (event) => {
-//     setInputValue(event.target.value);
-//   };
 
 //   const onSearch = () => {  
 //     if (inputValue.trim() !== "") {
@@ -131,20 +115,3 @@ export default Search;
 // 		}
 // 	}
 
-//   return (
-//     <div className={style.search}>
-//       <div>
-//         <input
-//           placeholder="Search"
-//           type="text"
-//           onKeyUp={handleKeyDown}
-//           value={inputValue}
-//           onChange={handleChange}
-//         />
-//         <button type="button" onClick={onSearch}>Search</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Search;

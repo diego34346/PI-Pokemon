@@ -1,4 +1,4 @@
-import { GET_POKEMONS, GET_TYPES, GET_BY_NAME, CLEAN_FILTER, ORDER_ALPHA } from "./actions";
+import { GET_POKEMONS, GET_TYPES, GET_BY_NAME, CLEAN_FILTER, ORDER_ALPHA, ORDER_ATTACK } from "./actions";
 
 const initialState = {
   allPokemon: [],
@@ -44,6 +44,15 @@ const rootReducer = (state = initialState, action) => {
         })      
       }
 
+      case ORDER_ATTACK:
+        const allPokOrdAttack = [...state.allPokemon]
+        return {
+          ...state,
+          allPokemon: action.payload !== 'more'
+          ? allPokOrdAttack.sort((a, b) => a.attack - b.attack)
+          : allPokOrdAttack.sort((a, b) => b.attack - a.attack)
+        }
+    
     case CLEAN_FILTER:
       return {
         ...state,

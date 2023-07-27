@@ -13,7 +13,7 @@ const CardList = ({ pokCardList }) => {
   useSelector((state) => state.allTypes);
 
   useEffect(() => {
-    setCurrentPok([...pokCardList].splice(0, RenderCards)); //Aca hace una copia del array pokCardList para extraer los elementos del valor que tenga RenderCards
+    setCurrentPok([...pokCardList].splice(0, RenderCards)); //Se hace una copia del array pokCardList para extraer los elementos del valor que tenga RenderCards
   }, [pokCardList]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const CardList = ({ pokCardList }) => {
   return (
     <div>
       <Search setCurrentPok={setCurrentPok} setPokemonNotFound={setPokemonNotFound}/>
-      
+     
       {currentPok.length > 0 || !pokemonNotFound ? (
         <Cards currentPok={currentPok} />
       ) : (

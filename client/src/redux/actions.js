@@ -59,16 +59,16 @@ export const getByNameById = (value) => {
 export const orderAlphabet = (A, D) => {
   return { 
     type: ORDER_ALPHA, 
-    payload: A, D 
+    payload: A, D
   }
 }
 
-// export const orderAttack = (more, less) => {
-//   return { 
-//     types : ORDER_ATTACK, 
-//     payload: more, less 
-//   }
-// }
+export const orderAttack = (more, less) => {
+  return { 
+    type : ORDER_ATTACK, 
+    payload: more, less,
+  }
+}
 
 // export const filterTypes = (type) => {
 //   return async (dispatch) => 
