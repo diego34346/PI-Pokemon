@@ -1,5 +1,6 @@
 import React from "react";
 import CardList from "../../components/CardList/CardList";
+import OrderFilter from "../../components/OrderFilter/OrderFilters";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemons } from "../../redux/actions";
@@ -9,12 +10,21 @@ const Home = () => {
   const pokCardList = useSelector((state) => state.allPokemon);
 
   useEffect(() => {
-    dispatch(getPokemons());
-  }, [dispatch]);
+    // Comprobamos si pokCardList está vacío antes de hacer el dispatch
+    if (pokCardList.length === 0) {
+      dispatch(getPokemons());
+    }
+  }, [dispatch, pokCardList]);
 
   return (
     <div>
-      {<CardList pokCardList={pokCardList} />}
+      <div>
+        {<OrderFilter/>}
+      </div>
+
+      <div>
+        {<CardList pokCardList={pokCardList} />}
+      </div>
     </div>
   );
 };

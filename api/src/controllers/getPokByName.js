@@ -32,7 +32,8 @@ const getPokByName = async (name) => {
       return pokByNameApi;
     }     
   } catch (error) {
-    return "error"
+    console.log(response);
+    return error
   }   
 };
 

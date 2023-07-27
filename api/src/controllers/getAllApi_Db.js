@@ -27,7 +27,7 @@ const getAllPokAPI = async () => {
     const dataPokemons = await Promise.all(secondReq);
     let pokemons = dataPokemons.map((obj) => obj.data);
     // console.log(pokemons)
-    //obtengo la data de cada pokemon por su suburl
+    //obtengo la data de cada pokemon por la sub Url
     const allPokemonsAPI = pokemons.map((pokemon) => objectApi(pokemon));
     // console.log(allPokemons)
     return allPokemonsAPI;

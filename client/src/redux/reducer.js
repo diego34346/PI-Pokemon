@@ -1,4 +1,4 @@
-import { GET_POKEMONS, GET_TYPES, GET_BY_NAME } from "./actions";
+import { GET_POKEMONS, GET_TYPES, GET_BY_NAME, CLEAN_FILTER, ORDER_ALPHA } from "./actions";
 
 const initialState = {
   allPokemon: [],
@@ -26,6 +26,30 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemonFilter: action.payload
       }
+
+    case ORDER_ALPHA:
+      const allPokOrdAlph = [...state.allPokemon]
+      return {
+        ...state,
+        allPokemon: action.payload === 'A'    
+        ? allPokOrdAlph.sort((a, b) => {
+          if (a.name > b.name) return 1
+          else if(a.name < b.name) return -1
+          else return 0 
+        }) : 
+        allPokOrdAlph.sort((a, b) => {
+        if (a.name < b.name) return 1
+        else if(a.name > b.name) return -1
+        else return 0 
+        })      
+      }
+
+    case CLEAN_FILTER:
+      return {
+        ...state,
+        pokemonFilter: []
+      }
+    
 
     default:
       return state;

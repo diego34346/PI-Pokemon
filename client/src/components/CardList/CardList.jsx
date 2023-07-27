@@ -7,7 +7,8 @@ import Search from "../Search/Search";
 
 const CardList = ({ pokCardList }) => {
   const RenderCards = 11;
-  const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de la prop PokCardList
+  const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de PokCardList para renderizar
+  const [pokemonNotFound, setPokemonNotFound] = useState(false)
   const dispatch = useDispatch();
   useSelector((state) => state.allTypes);
 
@@ -21,9 +22,9 @@ const CardList = ({ pokCardList }) => {
 
   return (
     <div>
-      <Search setCurrentPok={setCurrentPok} />
+      <Search setCurrentPok={setCurrentPok} setPokemonNotFound={setPokemonNotFound}/>
       
-      {currentPok.length > 0 || currentPok.name !== "error" ? (
+      {currentPok.length > 0 || !pokemonNotFound ? (
         <Cards currentPok={currentPok} />
       ) : (
         "Pokemon Not Found"
