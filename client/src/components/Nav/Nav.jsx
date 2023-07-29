@@ -29,7 +29,7 @@ const Nav = () => {
 
       <div>
         <Link to={"/Form"}>
-          <button>FORM</button>
+          <button>CREAR</button>
         </Link>
       </div>
 

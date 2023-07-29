@@ -23,7 +23,7 @@ const CardList = ({ pokCardList }) => {
   return (
     <div>
       <Search setCurrentPok={setCurrentPok} setPokemonNotFound={setPokemonNotFound}/>
-     
+      
       {currentPok.length > 0 || !pokemonNotFound ? (
         <Cards currentPok={currentPok} />
       ) : (

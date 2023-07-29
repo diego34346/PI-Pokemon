@@ -3,10 +3,11 @@ export const GET_POKEMONS = "GET_POKEMONS";
 export const GET_TYPES = "GET_TYPES";
 export const GET_BY_NAME = 'GET_BY_NAME'
 export const CLEAN_FILTER = 'CLEAN_FILTER'
-export const ORDER_ALPHA = 'ORDER_ALPHA'
+export const ORDER_ALPHABET = 'ORDER_ALPHABET'
 export const ORDER_ATTACK = 'ORDER_ATTACK'
 export const FILTER_TYPES = 'FILTER_TYPES'
 export const FILTER_DB = 'FILTER_DB'
+export const RESET_FILTERS = 'RESET_FILTERS'
 
 const URL = "http://localhost:3001";
 
@@ -58,7 +59,7 @@ export const getByNameById = (value) => {
 
 export const orderAlphabet = (A, D) => {
   return { 
-    type: ORDER_ALPHA, 
+    type: ORDER_ALPHABET, 
     payload: A, D
   }
 }
@@ -70,13 +71,20 @@ export const orderAttack = (more, less) => {
   }
 }
 
-// export const filterTypes = (type) => {
-//   return async (dispatch) => 
-//     dispatch({
-//       type: FILTER_TYPES,
-//       payload: type
-//     })
-// }
+export const filterTypes = (type) => {
+  return{
+    type: FILTER_TYPES,
+    payload: type
+  }
+}
+
+export const resetFilters = () => {
+  return { 
+    type: RESET_FILTERS, 
+  };
+}
+
+    
 
 // export const filterDB = () => {
 
