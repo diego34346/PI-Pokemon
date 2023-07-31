@@ -28,8 +28,8 @@ const Nav = () => {
       </div>
 
       <div>
-        <Link to={"/Form"}>
-          <button>CREAR</button>
+        <Link to={"/Create"}>
+          <button>CREATE</button>
         </Link>
       </div>
 

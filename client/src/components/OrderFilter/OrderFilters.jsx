@@ -10,28 +10,14 @@ const OrderFilter = () => {
   const dispatch = useDispatch()
   const [orderAlpha, setOrderAlpha] = useState('DEFAULT')
   const [orderAtta, setOrderAtta] = useState('DEFAULT')
-  const [filterTy, setFilterTy] = useState('DEFAULT')
+  const [filterTy, setFilterTy] = useState('DEFAULT') // se inicializan tres estados locales con el valor 'DEFAULT'
     
   
-  const handleOrdAlph = (event) => {
+  const handleSelectChange = (event, action, setState) => {
     event.preventDefault();
     const { value } = event.target;
-    setOrderAlpha(value)
-    dispatch(orderAlphabet(value))
-  }  
-  
-  const handleOrdAttack = (event) => {
-    event.preventDefault();
-    const { value } = event.target
-    setOrderAtta(value)
-    dispatch(orderAttack(value))
-  }
-
-  const handleFilTypes = (event) => {
-    event.preventDefault()
-    const { value } = event.target
-    setFilterTy(value)
-    dispatch(filterTypes(value))
+    setState(value);
+    dispatch(action(value));
   }
 
   const handleReset = () => {
@@ -45,19 +31,19 @@ const OrderFilter = () => {
   return (
     <div>
       <div>
-        <select onChange={handleOrdAlph} value={orderAlpha}>
+        <select onChange={(event) => handleSelectChange(event, orderAlphabet, setOrderAlpha)} value={orderAlpha}>
           <option value="DEFAULT" disabled>Alphabetical</option> 
           <option value="A">Order A - Z</option>
           <option value="D">Order Z - A</option>          
         </select>
 
-        <select onChange={handleOrdAttack} value={orderAtta}>
+        <select onChange={(event) => handleSelectChange(event, orderAttack, setOrderAtta)} value={orderAtta}>
           <option value="DEFAULT" disabled>Attack </option>
           <option value="more">Order Attack +</option>
           <option value="less">Order Attack -</option>
         </select>
 
-        <select onChange={handleFilTypes} value={filterTy}>
+        <select onChange={(event) => handleSelectChange(event, filterTypes, setFilterTy)} value={filterTy}>
           <option value="DEFAULT" disabled>Types </option>
           <option value="normal">normal</option>
           <option value="fighting">fighting</option>

@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 import "./App.css";
 import Landing from "./views/Landing/Landing";
 import Home from "./views/Home/Home";
+import Create from './views/Create/Create';
 import Nav from './components/Nav/Nav';
-import Form from './components/Form/Form';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Switch> 
           <Route exact path = '/' component={Landing} />
           <Route exact path = '/Home' component={Home} />
-          <Route exact path = '/Form' component={Form} />
+          <Route exact path = '/Create' component={Create} />
         </Switch>
       </div>    
     </div> 
