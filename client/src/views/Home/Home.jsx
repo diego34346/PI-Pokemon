@@ -3,7 +3,8 @@ import CardList from "../../components/CardList/CardList";
 import OrderFilter from "../../components/OrderFilter/OrderFilters";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons } from "../../redux/actions";
+import { getPokemons, resetFilters } from "../../redux/actions";
+
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,11 @@ const Home = () => {
       dispatch(getPokemons());
     }
   }, [dispatch, pokCardList]);
+
+
+  useEffect(()=>{ 
+      dispatch(resetFilters())
+  },[dispatch])
 
   return (
     <div>

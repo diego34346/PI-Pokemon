@@ -82,36 +82,3 @@ const Search = ({ setCurrentPok }) => {
 };
 
 export default Search;
-
-
-
-//   const onSearch = () => {  
-//     if (inputValue.trim() !== "") {
-//       if (!isNaN(inputValue)) { // Comprueba si el inputValue es un número
-//         const id = parseInt(inputValue);
-//         if (id >= 1 && id <= 1000) { // Comprueba si el número está en el rango válido
-//           dispatch(getByNameById(inputValue));
-//           setInputValue("");
-//         } else {
-//           window.alert('Dato invalido');
-//         }
-//       } else {
-//         dispatch(getByNameById(inputValue));
-//         setInputValue("");
-//       }
-//     } else {
-//       window.alert('Dato invalido');
-//     }
-//   };  
-
-//   useEffect(() => { // al ejecutar el onSearch la accion actualiza el estado pokemonFilter:[], lo que dispara el useEffect lo que actualiza la prop currentPok por medio su funcion de actualizacion setCurrentPok, y currentPok es usada por los otros componentes que lo tienen como prop
-//     setCurrentPok(pokFilter);
-//   }, [pokFilter, setCurrentPok]);
-
-//   const handleKeyDown = (event) => {
-// 		if (event.key === 'Enter') {
-// 			onSearch()
-// 			setInputValue('')
-// 		}
-// 	}
-

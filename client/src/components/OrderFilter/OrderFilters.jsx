@@ -1,23 +1,27 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { orderAlphabet, orderAttack, filterTypes, resetFilters } from "../../redux/actions";
-
+import { orderAlphabet, orderAttack, filterTypes, resetFilters, filterDB } from "../../redux/actions";
 
 const OrderFilter = () => {
   
-  useSelector((state) => state.allPokemon);
+  const allPokemon = useSelector((state) => state.allPokemon);
   const dispatch = useDispatch()
   const [orderAlpha, setOrderAlpha] = useState('DEFAULT')
   const [orderAtta, setOrderAtta] = useState('DEFAULT')
   const [filterTy, setFilterTy] = useState('DEFAULT') // se inicializan tres estados locales con el valor 'DEFAULT'
-    
   
   const handleSelectChange = (event, action, setState) => {
     event.preventDefault();
     const { value } = event.target;
     setState(value);
     dispatch(action(value));
+    // console.log(value)
+  }
+
+  const filterPokDB = allPokemon.filter(pok => pok.id.length > 4);
+  const handleMyPok = () => {
+    dispatch(filterDB(filterPokDB))
   }
 
   const handleReset = () => {
@@ -26,7 +30,6 @@ const OrderFilter = () => {
     setOrderAtta("DEFAULT");
     setFilterTy('DEFAULT')
 }
-
 
   return (
     <div>
@@ -66,6 +69,10 @@ const OrderFilter = () => {
           <option value="unknown">unknown</option>
           <option value="shadow">shadow</option>
         </select>
+      </div>
+
+      <div>
+        <button onClick={handleMyPok}>My Pokemons</button>
       </div>
 
       <div>

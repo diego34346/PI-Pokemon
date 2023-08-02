@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Search from "../Search/Search";
 
 const CardList = ({ pokCardList }) => {
-  const RenderCards = 11;
+  const RenderCards = 36;
   const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de PokCardList para renderizar
   const [pokemonNotFound, setPokemonNotFound] = useState(false)
   const dispatch = useDispatch();
@@ -23,13 +23,14 @@ const CardList = ({ pokCardList }) => {
   return (
     <div>
       <Search setCurrentPok={setCurrentPok} setPokemonNotFound={setPokemonNotFound}/>
-      
+
       {currentPok.length > 0 || !pokemonNotFound ? (
         <Cards currentPok={currentPok} />
       ) : (
         "Pokemon Not Found"
       )}
       
+      {/* <Pagination pokCardList={pokCardList} setCurrentPok={setCurrentPok} /> */}
     </div>
   );
 };

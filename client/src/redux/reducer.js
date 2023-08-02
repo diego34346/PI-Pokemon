@@ -2,11 +2,12 @@ import {
   GET_POKEMONS,
   GET_TYPES,
   GET_BY_NAME,
-  CLEAN_FILTER,
   ORDER_ALPHABET,
   ORDER_ATTACK,
   FILTER_TYPES,
-  RESET_FILTERS
+  FILTER_DB,
+  RESET_FILTERS,
+  CLEAN_FILTER,
 } from "./actions";
 
 const initialState = {
@@ -31,10 +32,10 @@ const rootReducer = (state = initialState, action) => {
           allTypes: action.payload,
         };
         
-        case GET_BY_NAME:
-          return {
-            ...state,
-            pokemonFilter: action.payload,
+      case GET_BY_NAME:
+        return {
+          ...state,
+          pokemonFilter: action.payload,
       };
       
       case ORDER_ALPHABET:        
@@ -75,6 +76,12 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
 
+    case FILTER_DB:
+      return {
+        ...state,
+        pokemonFilter: action.payload
+      }
+
     case RESET_FILTERS:
       return {
         ...state,
@@ -85,7 +92,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonFilter: [],
-        allTypes: [],        
+        // allTypes: [],        
       };
 
     default:

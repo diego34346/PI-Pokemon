@@ -8,6 +8,7 @@ export const ORDER_ATTACK = 'ORDER_ATTACK'
 export const FILTER_TYPES = 'FILTER_TYPES'
 export const FILTER_DB = 'FILTER_DB'
 export const RESET_FILTERS = 'RESET_FILTERS'
+export const POST_POK = 'POST_POK'
 
 const URL = "http://localhost:3001";
 
@@ -57,6 +58,27 @@ export const getByNameById = (value) => {
   }
 }
 
+export const postPok = (newPokemon) => {
+  return async () => {
+    try {
+      const DataPokemon = {
+        name: newPokemon.name,
+        hp: newPokemon.hp,
+        attack: newPokemon.attack,
+        defense: newPokemon.defense,
+        speed: newPokemon.speed,
+        weight: newPokemon.weight,
+        height: newPokemon.height,
+        types: [newPokemon.type1 , newPokemon.type2]
+      }
+      const post = await axios.post(`${URL}/pokemons`,DataPokemon)
+      return console.log(post.data)      
+    } catch (error) {
+      console.log(error)      
+    }
+  }
+}
+
 export const orderAlphabet = (A, D) => {
   return { 
     type: ORDER_ALPHABET, 
@@ -71,10 +93,17 @@ export const orderAttack = (more, less) => {
   }
 }
 
-export const filterTypes = (type) => {
+export const filterTypes = (types) => {
   return{
     type: FILTER_TYPES,
-    payload: type
+    payload: types
+  }
+}
+
+export const filterDB = (dataBase) => {
+  return {
+    type: FILTER_DB,
+    payload: dataBase
   }
 }
 
@@ -83,16 +112,6 @@ export const resetFilters = () => {
     type: RESET_FILTERS, 
   };
 }
-
-    
-
-// export const filterDB = () => {
-
-
-// }
-
-
-
 
 export const cleanFilter = () => {
   return {
