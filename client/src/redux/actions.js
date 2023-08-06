@@ -9,6 +9,9 @@ export const FILTER_TYPES = 'FILTER_TYPES'
 export const FILTER_DB = 'FILTER_DB'
 export const RESET_FILTERS = 'RESET_FILTERS'
 export const POST_POK = 'POST_POK'
+export const GET_POKEMONS_DB = "GET_POKEMONS_DB";
+export const GET_BY_ID = 'GET_BY_ID'
+// export const ADD_POKEMON = 'ADD_POKEMON'
 
 const URL = "http://localhost:3001";
 
@@ -26,6 +29,27 @@ export const getPokemons = () => {
     }
   };
 };
+
+// export const getPokemonsDB = () => {
+//   const endpoint = `${URL}/pokemons/db`;
+//   return async (dispatch, getState) => {
+//     try {
+//       const reqPokemons = await axios.get(endpoint);
+
+//       const state = getState(); // Obtener el estado actual
+//       const allPokemonIds = state.allPokemon.map(pokemon => pokemon.id);
+
+//       if (!allPokemonIds.includes(reqPokemons.id)) {
+//         return dispatch({
+//           type: GET_POKEMONS_DB,
+//           payload: reqPokemons.data
+//         });
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
 
 export const getTypes = () => {
   const endpoint = `${URL}/types`
@@ -58,6 +82,22 @@ export const getByNameById = (value) => {
   }
 }
 
+export const getById = (id) => {
+  const endpoint = `${URL}/pokemons/${id}`
+  return async (dispatch) => {
+    try {
+      const reqById = await axios.get(endpoint);
+      return dispatch({
+        type: GET_BY_ID,
+        payload: reqById.data
+      })
+    } catch (error) {
+      // console.log('error')
+      return { error: 'Pokemon not found' }
+    }
+  }
+}
+
 export const postPok = (newPokemon) => {
   return async () => {
     try {
@@ -72,12 +112,19 @@ export const postPok = (newPokemon) => {
         types: [newPokemon.type1 , newPokemon.type2]
       }
       const post = await axios.post(`${URL}/pokemons`,DataPokemon)
-      return console.log(post.data)      
+      return console.log(post.data)    
     } catch (error) {
       console.log(error)      
     }
   }
 }
+
+// export const addPokemon = (pokemon) => {
+//   return {
+//     type: ADD_POKEMON,
+//     payload: pokemon
+//   }
+// }
 
 export const orderAlphabet = (A, D) => {
   return { 

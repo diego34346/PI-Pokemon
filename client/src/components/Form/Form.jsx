@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postPok, getPokemons } from "../../redux/actions";
+import { postPok, getPokemons} from "../../redux/actions";
+import validations from "./Validations";
 
 const Form = () => {
   const dispatch = useDispatch();
   const allTypes = useSelector((state) => state.allTypes)
+  const [validate, setValidate] = useState({});
   const [input, setInput] = useState({
     name: "",
     hp: "",
@@ -19,16 +21,14 @@ const Form = () => {
   });
 
   const handleInputChange = (event) => {
-    setInput((state) => ({
-      ...state,
-      [event.target.name]: event.target.value,
-    }));
+    setInput((state) => ({...state, [event.target.name]: event.target.value, }));
+    setValidate(validations({ ...input, [event.target.name]: event.target.value }));    
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault();    
     dispatch(postPok(input));
-    dispatch(getPokemons());
+    dispatch(getPokemons())
     setInput({
       name: "",
       hp: "",
@@ -39,7 +39,7 @@ const Form = () => {
       height: "",
       type1: "",
       type2: "",
-    })
+    })    
   };
 
   return (
@@ -60,6 +60,7 @@ const Form = () => {
             className=""
           />
         </div>
+        {validate.name && <p className="error-input">{validate.name}</p>}
 
         <div>
           <input
@@ -74,6 +75,7 @@ const Form = () => {
             className=""        
           />
         </div>
+        {validate.hp && <p className="error-input">{validate.hp}</p>}
 
         <div>
           <input 
@@ -88,6 +90,7 @@ const Form = () => {
             className=""
           />
         </div>
+        {validate.attack && <p className="error-input">{validate.attack}</p>}
 
         <div>
           <input 
@@ -102,6 +105,7 @@ const Form = () => {
             className=""
           />
         </div>
+        {validate.defense && <p className="error-input">{validate.defense}</p>}
 
         <div>
           <input 
@@ -114,8 +118,9 @@ const Form = () => {
             max='255'
             required
             className=""
-          />
+          />  
         </div>
+        {validate.speed && <p className="error-input">{validate.speed}</p>}
 
         <div>
           <input 
@@ -130,6 +135,7 @@ const Form = () => {
             className=""
           />
         </div>
+        {validate.height && <p className="error-input">{validate.height}</p>}
 
         <div>
           <input 
@@ -144,6 +150,7 @@ const Form = () => {
             className="" 
           />
         </div>
+        {validate.weight && <p className="error-input">{validate.weight}</p>}
 
         <div>
           <select 
@@ -167,7 +174,7 @@ const Form = () => {
           >
             <option value="Type Two">Type Two</option>
             {allTypes.map((type)=>(
-              <option value={type} key={type} className="capitalizeText" > {type} </option>
+              <option value={type} key={type} className="" > {type} </option>
             ))}
           </select>
         </div>

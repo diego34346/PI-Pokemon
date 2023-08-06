@@ -17,7 +17,8 @@ module.exports = (sequelize) => {
     },
 
     image:{
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg"
     },
 
     hp:{
@@ -43,11 +44,6 @@ module.exports = (sequelize) => {
     weight:{
       type: DataTypes.INTEGER,
     },
-
-    // type:{
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   defaultValue: ["nada"]
-    // }
     
   },{timestamps: false});
 };

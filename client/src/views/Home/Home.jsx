@@ -15,12 +15,8 @@ const Home = () => {
     if (pokCardList.length === 0) {
       dispatch(getPokemons());
     }
+    dispatch(resetFilters())
   }, [dispatch, pokCardList]);
-
-
-  useEffect(()=>{ 
-      dispatch(resetFilters())
-  },[dispatch])
 
   return (
     <div>

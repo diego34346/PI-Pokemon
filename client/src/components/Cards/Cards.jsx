@@ -6,6 +6,7 @@ const Cards = ({ currentPok }) => {
       {Array.isArray(currentPok) ? (   //Cuando hago una peticion a la API, "getPokemons" me devuelve un array
         currentPok.map((pok) => (
           <Card
+            id={pok.id} 
             key={pok.id}            
             name={pok.name}
             image={pok.image}
@@ -14,6 +15,7 @@ const Cards = ({ currentPok }) => {
         ))
       ) : (   //cuando hago una peticion a la API "getByNameById" me devuelve un objeto
         <Card
+          id={currentPok.id}
           key={currentPok.id}
           name={currentPok.name}
           image={currentPok.image}

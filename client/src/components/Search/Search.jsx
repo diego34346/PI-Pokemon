@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { getByNameById, cleanFilter } from "../../redux/actions";
+import { getByNameById, /*cleanFilter*/ } from "../../redux/actions";
 import style from "./Search.module.css";
 
 const Search = ({ setCurrentPok }) => {
@@ -51,11 +51,11 @@ const Search = ({ setCurrentPok }) => {
     setCurrentPok(pokFilter);    
   }, [pokFilter, setCurrentPok, dispatch]);
 
-  useEffect(()=>{
-    return () => {
-      dispatch(cleanFilter())
-    }
-  },[dispatch])
+  // useEffect(()=>{
+  //   return () => {
+  //     dispatch(cleanFilter())
+  //   }
+  // },[dispatch])
 
   const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {

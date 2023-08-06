@@ -8,6 +8,9 @@ import {
   FILTER_DB,
   RESET_FILTERS,
   CLEAN_FILTER,
+  GET_BY_ID,
+  // GET_POKEMONS_DB,
+  // ADD_POKEMON
 } from "./actions";
 
 const initialState = {
@@ -25,36 +28,54 @@ const rootReducer = (state = initialState, action) => {
         allPokemon: action.payload,
         pokemonFilter: action.payload,
       };
+
+    // case GET_POKEMONS_DB:
+    //   return {
+    //     ...state,
+    //     allPokemon: [...state.allPokemon, ...action.payload],
+    //   };
       
-      case GET_TYPES:
-        return {
-          ...state,
-          allTypes: action.payload,
-        };
-        
-      case GET_BY_NAME:
-        return {
-          ...state,
-          pokemonFilter: action.payload,
+    case GET_TYPES:
+      return {
+        ...state,
+        allTypes: action.payload,
       };
+        
+    case GET_BY_NAME:
+      return {
+        ...state,
+        pokemonFilter: action.payload,
+      };
+
+    case GET_BY_ID:
+      return {
+        ...state,
+        pokemonFilter: action.payload,
+      };
+
+    // case ADD_POKEMON:
+    //   return {
+    //     ...state,
+    //     allPokemon: [...state.allPokemon, action.payload]
+    //   }
       
-      case ORDER_ALPHABET:        
-        const allPokOrdAlph = [...state.pokemonFilter]
-        return {
-          ...state,
-          pokemonFilter:
-          action.payload === "A"
-          ? allPokOrdAlph.sort((a, b) => {
-            if (a.name > b.name) return 1;
-            else if (a.name < b.name) return -1;
-            else return 0;
-          })
-          : allPokOrdAlph.sort((a, b) => {
-            if (a.name < b.name) return 1;
-            else if (a.name > b.name) return -1;
-            else return 0;
-          }),
-        };
+    case ORDER_ALPHABET:        
+      const allPokOrdAlph = [...state.pokemonFilter]
+      return {
+        ...state,
+        pokemonFilter:
+        action.payload === "A"
+        ? allPokOrdAlph.sort((a, b) => {
+          if (a.name > b.name) return 1;
+          else if (a.name < b.name) return -1;
+          else return 0;
+        })
+        : allPokOrdAlph.sort((a, b) => {
+          if (a.name < b.name) return 1;
+          else if (a.name > b.name) return -1;
+          else return 0;
+        }),
+      };
 
     case ORDER_ATTACK:
       const allPokOrdAttack = [...state.pokemonFilter];
@@ -92,7 +113,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonFilter: [],
-        // allTypes: [],        
+        // allTypes: [],       
       };
 
     default:

@@ -29,7 +29,7 @@ const OrderFilter = () => {
     setOrderAlpha("DEFAULT");
     setOrderAtta("DEFAULT");
     setFilterTy('DEFAULT')
-}
+  }
 
   return (
     <div>

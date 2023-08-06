@@ -22,7 +22,7 @@ const objectApi = (pokemon) => {
 
 const getAllPokAPI = async () => {
   try {
-    const firstReq = await axios.get(`${URL_API}?limit=10`);
+    const firstReq = await axios.get(`${URL_API}?limit=3`);
     const secondReq = firstReq.data.results.map((obj) => axios.get(obj.url));
     const dataPokemons = await Promise.all(secondReq);
     let pokemons = dataPokemons.map((obj) => obj.data);
@@ -37,6 +37,8 @@ const getAllPokAPI = async () => {
     return error;
   }
 };
+
+// peticion usando promesas
 
 // const getAllPokAPI = () => {
 //   return new Promise((resolve, reject)=>{
@@ -62,25 +64,9 @@ const getAllPokDB = async () => {
       //devuelve los pokemon, que incluyan del modelo Type el atributo name (join)
       include: { 
         model: Type,
-        attributes: ["name"], //me trae el name del type
+        attributes: ["name"], 
       },
-      // attributes: { exclude: ["pokemon_type"] },
     });
-
-    // const filteredPokemons = allPokemonsDB.map(pokemon => ({
-    //   id: pokemon.dataValues.id,
-    //   name: pokemon.dataValues.name,
-    //   image: pokemon.dataValues.image,
-    //   hp: pokemon.dataValues.hp,
-    //   attack: pokemon.dataValues.attack,
-    //   defense: pokemon.dataValues.defense,
-    //   speed: pokemon.dataValues.speed,
-    //   height: pokemon.dataValues.height,
-    //   weight: pokemon.dataValues.weight,
-    //   types: pokemon.dataValues.types.map(type => {return {name: type.dataValues.name}}),
-    // }));
-
-    // return filteredPokemons
     
     return allPokemonsDB
   } catch (error) {
