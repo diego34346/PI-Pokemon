@@ -53,7 +53,7 @@ const Form = () => {
             type="text"
             name="name"
             onChange={handleInputChange}
-            placeholder="name"
+            placeholder="Name"
             value={input.name}
             required
             autoComplete="off"
@@ -70,7 +70,7 @@ const Form = () => {
             value={input.hp}
             placeholder="Life"
             min='0'
-            max='255'
+            max='150'
             required
             className=""        
           />
@@ -85,7 +85,7 @@ const Form = () => {
             value={input.attack}
             placeholder="Attack"
             min='0'
-            max='255'
+            max='150'
             required
             className=""
           />
@@ -100,7 +100,7 @@ const Form = () => {
             value={input.defense}
             placeholder="Defense"
             min='0'
-            max='255'
+            max='150'
             required
             className=""
           />
@@ -115,7 +115,7 @@ const Form = () => {
             value={input.speed}
             placeholder="Speed"
             min='0'
-            max='255'
+            max='150'
             required
             className=""
           />  
@@ -130,7 +130,7 @@ const Form = () => {
             value={input.height}
             placeholder="Height"
             min='0'
-            max='255'
+            max='3000'
             required
             className=""
           />
@@ -145,7 +145,7 @@ const Form = () => {
             value={input.weight}
             placeholder="Weight"
             min='0'
-            max='255'
+            max='3000'
             required
             className="" 
           />

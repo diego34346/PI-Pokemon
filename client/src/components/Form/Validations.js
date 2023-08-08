@@ -1,32 +1,44 @@
 const validations = (input) => {
   let validate = {};
-  
+
   if (!input.name) {
-      validate.name = 'Name is necessary';
+    validate.name = `"Name" can't by empty`;
   }
 
-  if (input.hp > 255 || !input.hp) {
-      validate.hp = 'Life is necessary and less than 255';
+  if (!input.hp) {
+    validate.hp = `"Life" can't by empty`;
+  }
+  if (input.hp > 200) {
+    validate.hp = "Must be less than 200";
   }
 
-  if (input.attack > 255 || !input.attack ) {
-      validate.attack = 'Attack is necessary and less than 255';
+  if (!input.attack) {
+    validate.attack = `"Attack" can't by empty`;
+  }
+  if (input.attack > 200) {
+    validate.attack = `Must be less than 200`;
   }
 
-  if (input.defense > 255 || !input.defense) {
-      validate.defense = 'Defense is necessary and less than 255';
+  if (!input.defense) {
+    validate.defense = `"Defense" can't by empty`;
+  }
+  if (input.defense > 200) {
+    validate.defense = `Must be less than 200`;
   }
 
-  if (input.speed > 255 || !input.speed) {
-      validate.speed = 'Speed is necessary and less than 255';
+  if (!input.speed) {
+    validate.speed = `"Speeed" can't by empty`;
+  }
+  if (input.speed > 200) {
+    validate.speed = `Must be less than 200`;
   }
 
   if (!input.height) {
-      validate.height = 'Height is necessary';
-  };
+    validate.height = `"Height" can't by empty`;
+  }
 
   if (!input.weight) {
-      validate.weight = 'Weight is necessary';
+    validate.weight = `"Weight" can't by empty`;
   }
 
   return validate;

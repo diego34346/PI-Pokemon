@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 const Card = ({ id, name, image, types }) => {
   return (
     <div>
-      <Link to={'Detail/' + id}>
+      <Link className={style.link} to={'Detail/' + id}>
         <div className={style.Card} >
-          <img src={image} width={200} height={130} alt={name} />
+          <img src={image} alt={name} />
           <h1>{name}</h1>
           {types.map(type => (
             <h2 key={type.name}>{type.name}</h2>

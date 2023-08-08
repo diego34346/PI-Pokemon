@@ -30,43 +30,42 @@ const DetailPok = () => {
         </div>
 
         <div className="">
-          <section>
-            <p className="titleSection">Data</p>
+          <section>            
             <ul type="none" className="">
               <li>
                 <span className="label">Height</span>
                 <div>
-                    <span className="value">{height / 10}m</span>
+                    <span className="value">{height / 10} m.</span>
                 </div>
               </li>
               <li>
                 <span className="label">Weight</span>
                 <div>
-                    <span className="value">{weight / 10}kg</span>
+                    <span className="value">{weight / 10} kg.</span>
                 </div>
               </li>
             </ul>
           </section>
             <section>
-              <p className="titleSection">Statistics</p>
+              <p className="titleSection">Stats</p>
               <div>
                 <div><span>{`Life: ${hp}`}</span></div>
-                <progress max='255' value={hp}>{hp}</progress>
+                <progress max='150' value={hp}>{hp}</progress>
               </div>
 
               <div>
                 <div><span>{`Attack: ${attack}`}</span></div>
-                <progress max='255' value={attack}>{attack}</progress>
+                <progress max='150' value={attack}>{attack}</progress>
               </div>
 
               <div>
                 <div><span>{`Defense: ${defense}`}</span></div>
-                <progress max='255' value={defense}>{defense}</progress>
+                <progress max='150' value={defense}>{defense}</progress>
               </div>
 
               <div>
                 <div><span>{`Speed: ${speed}`}</span></div>
-                <progress max='255' value={speed}>{speed}</progress>
+                <progress max='150' value={speed}>{speed}</progress>
               </div>
             </section>
         </div>

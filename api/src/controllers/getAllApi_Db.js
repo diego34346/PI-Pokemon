@@ -5,10 +5,14 @@ const { Pokemon, Type } = require("../db");
 
 //objeto que devuelve la url/poke o /id o /name
 const objectApi = (pokemon) => {
+  const image1 = pokemon.sprites.other.dream_world.front_default
+  const image2 = pokemon.sprites.other.home.front_default
+  const image3 = pokemon.sprites.other['official-artwork'].front_default
+  
   const objectApi = {
     id: pokemon.id,
     name: pokemon.name,
-    image: pokemon.sprites.other.dream_world.front_default,
+    image: image1 || image2 || image3,
     hp: pokemon.stats[0].base_stat,
     attack: pokemon.stats[1].base_stat,
     defense: pokemon.stats[2].base_stat,

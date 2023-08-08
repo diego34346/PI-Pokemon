@@ -48,3 +48,7 @@
   text-shadow: -1px 0px 8px rgb(27, 255, 1);
   font-weight: 400;
 }
+
+.link {
+  text-decoration: none;
+}
