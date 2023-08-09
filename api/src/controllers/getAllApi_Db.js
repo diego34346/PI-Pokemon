@@ -5,9 +5,9 @@ const { Pokemon, Type } = require("../db");
 
 //objeto que devuelve la url/poke o /id o /name
 const objectApi = (pokemon) => {
-  const image1 = pokemon.sprites.other.dream_world.front_default
-  const image2 = pokemon.sprites.other.home.front_default
-  const image3 = pokemon.sprites.other['official-artwork'].front_default
+  const image1 = pokemon.sprites.other.dream_world.front_default1
+  const image2 = pokemon.sprites.other.home.front_default2
+  const image3 = pokemon.sprites.other['official-artwork'].front_default3
   
   const objectApi = {
     id: pokemon.id,
@@ -26,7 +26,7 @@ const objectApi = (pokemon) => {
 
 const getAllPokAPI = async () => {
   try {
-    const firstReq = await axios.get(`${URL_API}?limit=3`);
+    const firstReq = await axios.get(`${URL_API}?limit=36`);
     const secondReq = firstReq.data.results.map((obj) => axios.get(obj.url));
     const dataPokemons = await Promise.all(secondReq);
     let pokemons = dataPokemons.map((obj) => obj.data);
@@ -41,6 +41,7 @@ const getAllPokAPI = async () => {
     return error;
   }
 };
+
 
 // peticion usando promesas
 

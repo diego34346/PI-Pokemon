@@ -5,7 +5,7 @@ import { orderAlphabet, orderAttack, filterTypes, resetFilters, filterDB } from 
 
 const OrderFilter = () => {
   
-  const allPokemon = useSelector((state) => state.allPokemon);
+  const allPokemonDB = useSelector((state) => state.allPokemonDB);
   const dispatch = useDispatch()
   const [orderAlpha, setOrderAlpha] = useState('DEFAULT')
   const [orderAtta, setOrderAtta] = useState('DEFAULT')
@@ -19,7 +19,7 @@ const OrderFilter = () => {
     // console.log(value)
   }
 
-  const filterPokDB = allPokemon.filter(pok => pok.id.length > 4);
+  const filterPokDB = allPokemonDB.filter(pok => pok.id.length > 4);
   const handleMyPok = () => {
     dispatch(filterDB(filterPokDB))
   }

@@ -9,12 +9,13 @@ import {
   RESET_FILTERS,
   CLEAN_FILTER,
   GET_BY_ID,
-  // GET_POKEMONS_DB,
+  GET_POKEMONS_DB,
   // ADD_POKEMON
 } from "./actions";
 
 const initialState = {
   allPokemon: [],
+  allPokemonDB: [],
   allTypes: [],
   pokemonFilter: [],
 };
@@ -29,23 +30,29 @@ const rootReducer = (state = initialState, action) => {
         pokemonFilter: action.payload,
       };
 
-    // case GET_POKEMONS_DB:
-    //   return {
-    //     ...state,
-    //     allPokemon: [...state.allPokemon, ...action.payload],
-    //   };
+    case GET_POKEMONS_DB:
+      return {
+        ...state,
+        allPokemonDB: action.payload,
+      };
+      
+    case FILTER_DB:
+      return {
+        ...state,
+        pokemonFilter: action.payload
+      }
       
     case GET_TYPES:
       return {
         ...state,
         allTypes: action.payload,
       };
-        
-    case GET_BY_NAME:
-      return {
-        ...state,
-        pokemonFilter: action.payload,
-      };
+      
+      case GET_BY_NAME:
+        return {
+          ...state,
+      pokemonFilter: action.payload,
+    };
 
     case GET_BY_ID:
       return {
@@ -97,17 +104,15 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
 
-    case FILTER_DB:
-      return {
-        ...state,
-        pokemonFilter: action.payload
-      }
 
-    case RESET_FILTERS:
-      return {
-        ...state,
-        pokemonFilter: [...state.allPokemon.sort((a, b) => a.id - b.id)],
-      }
+      case RESET_FILTERS:
+        const sortedPokemon = [...state.allPokemon].sort((a, b) => a.id - b.id);
+        const slicedPokemon = sortedPokemon.slice(0, 12);
+      
+        return {
+          ...state,
+          pokemonFilter: slicedPokemon,
+        };
     
     case CLEAN_FILTER:
       return {

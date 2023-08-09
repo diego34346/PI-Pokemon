@@ -30,26 +30,27 @@ export const getPokemons = () => {
   };
 };
 
-// export const getPokemonsDB = () => {
-//   const endpoint = `${URL}/pokemons/db`;
-//   return async (dispatch, getState) => {
-//     try {
-//       const reqPokemons = await axios.get(endpoint);
+export const getPokemonsDB = () => {
+  const endpoint = `${URL}/pokemons/db`;
+  return async (dispatch) => {
+    try {
+      const reqPokemons = await axios.get(endpoint);
+      return dispatch({
+        type: GET_POKEMONS_DB,
+        payload: reqPokemons.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
-//       const state = getState(); // Obtener el estado actual
-//       const allPokemonIds = state.allPokemon.map(pokemon => pokemon.id);
-
-//       if (!allPokemonIds.includes(reqPokemons.id)) {
-//         return dispatch({
-//           type: GET_POKEMONS_DB,
-//           payload: reqPokemons.data
-//         });
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+export const filterDB = (dataBase) => {
+  return {
+    type: FILTER_DB,
+    payload: dataBase
+  }
+}
 
 export const getTypes = () => {
   const endpoint = `${URL}/types`
@@ -147,12 +148,6 @@ export const filterTypes = (types) => {
   }
 }
 
-export const filterDB = (dataBase) => {
-  return {
-    type: FILTER_DB,
-    payload: dataBase
-  }
-}
 
 export const resetFilters = () => {
   return { 

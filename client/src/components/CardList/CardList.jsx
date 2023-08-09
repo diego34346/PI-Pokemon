@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { getTypes } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "../Search/Search";
+import Pagination from "../Pagination/Pagination";
 
 const CardList = ({ pokCardList }) => {
-  const RenderCards = 36;
+  const RenderCards = 12;
   const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de PokCardList para renderizar
   const [pokemonNotFound, setPokemonNotFound] = useState(false)
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const CardList = ({ pokCardList }) => {
         "Pokemon Not Found"
       )}
       
-      {/* <Pagination pokCardList={pokCardList} setCurrentPok={setCurrentPok} /> */}
+      <Pagination pokCardList={pokCardList} setCurrentPok={setCurrentPok} />
     </div>
   );
 };

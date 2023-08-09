@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postPok, getPokemons} from "../../redux/actions";
+import { postPok, getPokemonsDB} from "../../redux/actions";
 import validations from "./Validations";
 
 const Form = () => {
@@ -28,7 +28,7 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();    
     dispatch(postPok(input));
-    dispatch(getPokemons())
+    dispatch(getPokemonsDB())
     setInput({
       name: "",
       hp: "",
