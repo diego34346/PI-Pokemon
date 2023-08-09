@@ -21,11 +21,11 @@ const Search = ({ setCurrentPok }) => {
     if (inputValue.trim() !== "") {
       if (!isNaN(inputValue)) {
         const id = parseInt(inputValue);
-        if (id >= 1 && id <= 1000) {
+        if (id >= 1 && id <= 1010) {
           dispatch(getByNameById(inputValue));
           setInputValue("");
         } else {
-          window.alert('Number between 0 - 1000');
+          window.alert('Number between 0 - 1010');
         }
       } else {
         dispatch(getByNameById(inputValue))

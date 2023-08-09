@@ -16,7 +16,7 @@ const Cards = ({ currentPok }) => {
       ) : (   //cuando hago una peticion a la API "getByNameById" me devuelve un objeto
         <Card
           id={currentPok.id}
-          key={currentPok.id}
+          key={currentPok.name}
           name={currentPok.name}
           image={currentPok.image}
           types={currentPok.types}
