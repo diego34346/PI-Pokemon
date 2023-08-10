@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { getByNameById, /*cleanFilter*/ } from "../../redux/actions";
+import { getByNameById } from "../../redux/actions";
 import style from "./Search.module.css";
 
 const Search = ({ setCurrentPok }) => {
@@ -21,11 +21,11 @@ const Search = ({ setCurrentPok }) => {
     if (inputValue.trim() !== "") {
       if (!isNaN(inputValue)) {
         const id = parseInt(inputValue);
-        if (id >= 1 && id <= 1010) {
+        if ((id >= 1 && id <= 1010) || (id >= 10001 && id <= 10271)) {
           dispatch(getByNameById(inputValue));
           setInputValue("");
         } else {
-          window.alert('Number between 0 - 1010');
+          window.alert('Id must be between 0 - 1010 and 10001 - 10271');
         }
       } else {
         dispatch(getByNameById(inputValue))
@@ -51,11 +51,7 @@ const Search = ({ setCurrentPok }) => {
     setCurrentPok(pokFilter);    
   }, [pokFilter, setCurrentPok, dispatch]);
 
-  // useEffect(()=>{
-  //   return () => {
-  //     dispatch(cleanFilter())
-  //   }
-  // },[dispatch])
+  
 
   const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {

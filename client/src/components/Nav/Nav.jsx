@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { getPokemons } from "../../redux/actions";
 import style from './Nav.module.css'
 
 const Nav = () => {

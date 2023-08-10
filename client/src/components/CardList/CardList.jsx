@@ -11,15 +11,17 @@ const CardList = ({ pokCardList }) => {
   const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de PokCardList para renderizar
   const [pokemonNotFound, setPokemonNotFound] = useState(false)
   const dispatch = useDispatch();
-  useSelector((state) => state.allTypes);
+  const allTypes = useSelector((state) => state.allTypes);
 
   useEffect(() => {
     setCurrentPok([...pokCardList].splice(0, RenderCards)); //Se hace una copia del array pokCardList para extraer los elementos del valor que tenga RenderCards
   }, [pokCardList]);
 
   useEffect(() => {
-    dispatch(getTypes());
-  }, [dispatch]);
+    if(allTypes.length === 0){
+      dispatch(getTypes())
+    }
+  }, [dispatch, allTypes]);
 
   return (
     <div>

@@ -11,8 +11,7 @@ const DetailPok = () => {
 
   useEffect(() =>{
     dispatch(getById(id))
-    // eslint-disable-next-line
-  },[dispatch]) 
+  },[dispatch, id]) 
 
   const { name, image, hp, attack, defense, speed, height, weight, types} = pokemonFilter
 
@@ -26,7 +25,7 @@ const DetailPok = () => {
           ))}
         
         <div>
-            <img src={image} width={300} height={200} alt={name} />
+            <img src={image} width={200} height={200} alt={name} />
         </div>
 
         <div className="">
@@ -50,22 +49,22 @@ const DetailPok = () => {
               <p className="titleSection">Stats</p>
               <div>
                 <div><span>{`Life: ${hp}`}</span></div>
-                <progress max='150' value={hp}>{hp}</progress>
+                <progress max='250' value={hp}>{hp}</progress>
               </div>
 
               <div>
                 <div><span>{`Attack: ${attack}`}</span></div>
-                <progress max='150' value={attack}>{attack}</progress>
+                <progress max='250' value={attack}>{attack}</progress>
               </div>
 
               <div>
                 <div><span>{`Defense: ${defense}`}</span></div>
-                <progress max='150' value={defense}>{defense}</progress>
+                <progress max='250' value={defense}>{defense}</progress>
               </div>
 
               <div>
                 <div><span>{`Speed: ${speed}`}</span></div>
-                <progress max='150' value={speed}>{speed}</progress>
+                <progress max='250' value={speed}>{speed}</progress>
               </div>
             </section>
         </div>

@@ -1,13 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postPok, getPokemonsDB} from "../../redux/actions";
+import { postPok } from "../../redux/actions";
 import validations from "./Validations";
 
 const Form = () => {
   const dispatch = useDispatch();
   const allTypes = useSelector((state) => state.allTypes)
-  const [validate, setValidate] = useState({});
+  const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
     hp: "",
@@ -20,15 +20,24 @@ const Form = () => {
     type2: "",
   });
 
+  const [disabled, setDisabled] = useState(false);  
+  useEffect(() => {
+    if ( Object.keys(errors).length === 0) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [errors]);
+
   const handleInputChange = (event) => {
     setInput((state) => ({...state, [event.target.name]: event.target.value, }));
-    setValidate(validations({ ...input, [event.target.name]: event.target.value }));    
+    setErrors(validations({ ...input, [event.target.name]: event.target.value }));    
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();    
     dispatch(postPok(input));
-    dispatch(getPokemonsDB())
+    // dispatch(getPokemonsDB())
     setInput({
       name: "",
       hp: "",
@@ -41,12 +50,12 @@ const Form = () => {
       type2: "",
     })    
   };
-
+  
   return (
     <div>
       <h1>CREATE YOUR POKEMON</h1>
 
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
 
         <div>
           <input
@@ -60,7 +69,7 @@ const Form = () => {
             className=""
           />
         </div>
-        {validate.name && <p className="error-input">{validate.name}</p>}
+        {errors.name && <p className="error-input">{errors.name}</p>}
 
         <div>
           <input
@@ -75,7 +84,7 @@ const Form = () => {
             className=""        
           />
         </div>
-        {validate.hp && <p className="error-input">{validate.hp}</p>}
+        {errors.hp && <p className="error-input">{errors.hp}</p>}
 
         <div>
           <input 
@@ -90,7 +99,7 @@ const Form = () => {
             className=""
           />
         </div>
-        {validate.attack && <p className="error-input">{validate.attack}</p>}
+        {errors.attack && <p className="error-input">{errors.attack}</p>}
 
         <div>
           <input 
@@ -105,7 +114,7 @@ const Form = () => {
             className=""
           />
         </div>
-        {validate.defense && <p className="error-input">{validate.defense}</p>}
+        {errors.defense && <p className="error-input">{errors.defense}</p>}
 
         <div>
           <input 
@@ -120,7 +129,7 @@ const Form = () => {
             className=""
           />  
         </div>
-        {validate.speed && <p className="error-input">{validate.speed}</p>}
+        {errors.speed && <p className="error-input">{errors.speed}</p>}
 
         <div>
           <input 
@@ -135,7 +144,7 @@ const Form = () => {
             className=""
           />
         </div>
-        {validate.height && <p className="error-input">{validate.height}</p>}
+        {errors.height && <p className="error-input">{errors.height}</p>}
 
         <div>
           <input 
@@ -150,7 +159,7 @@ const Form = () => {
             className="" 
           />
         </div>
-        {validate.weight && <p className="error-input">{validate.weight}</p>}
+        {errors.weight && <p className="error-input">{errors.weight}</p>}
 
         <div>
           <select 
@@ -165,7 +174,6 @@ const Form = () => {
           </select>
         </div>
 
-
         <div>
           <select 
             name="type2"
@@ -179,11 +187,11 @@ const Form = () => {
           </select>
         </div>
 
-
         <button 
-          type="submit" 
-          onClick={handleSubmit} 
-          >CREATE</button>
+          type="submit"
+          disabled={disabled}
+          >CREATE
+        </button>
 
       </form>
     </div>

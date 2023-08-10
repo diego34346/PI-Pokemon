@@ -1,6 +1,5 @@
 const { getAllPokAPI, /*getAllPokDB*/ } = require("./getAllApi_Db");
 
-//concatena en un array lo que me devuelve la api y la DB
 const getAllPok = async () => {
   try {
     const dataAPI = await getAllPokAPI();

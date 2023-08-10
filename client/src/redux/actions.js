@@ -11,7 +11,6 @@ export const RESET_FILTERS = 'RESET_FILTERS'
 export const POST_POK = 'POST_POK'
 export const GET_POKEMONS_DB = "GET_POKEMONS_DB";
 export const GET_BY_ID = 'GET_BY_ID'
-// export const ADD_POKEMON = 'ADD_POKEMON'
 
 const URL = "http://localhost:3001";
 
@@ -45,10 +44,9 @@ export const getPokemonsDB = () => {
   };
 };
 
-export const filterDB = (dataBase) => {
+export const filterDB = () => {
   return {
     type: FILTER_DB,
-    payload: dataBase
   }
 }
 
@@ -119,13 +117,6 @@ export const postPok = (newPokemon) => {
     }
   }
 }
-
-// export const addPokemon = (pokemon) => {
-//   return {
-//     type: ADD_POKEMON,
-//     payload: pokemon
-//   }
-// }
 
 export const orderAlphabet = (A, D) => {
   return { 

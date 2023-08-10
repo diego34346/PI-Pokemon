@@ -7,7 +7,7 @@ const { objectApi } = require("./getAllApi_Db");
 const getPokByName = async (name) => {  
   try {
     const pokByName = await Pokemon.findOne({
-      where: { name }, //encuentra primera coincidencia
+      where: { name }, 
       include: { model: Type },    
     });
     if (pokByName) {

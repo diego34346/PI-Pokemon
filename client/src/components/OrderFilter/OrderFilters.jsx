@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { orderAlphabet, orderAttack, filterTypes, resetFilters, filterDB } from "../../redux/actions";
+import { orderAlphabet, orderAttack, filterTypes, resetFilters, filterDB, getPokemonsDB } from "../../redux/actions";
 
 const OrderFilter = () => {
   
-  const allPokemonDB = useSelector((state) => state.allPokemonDB);
+  /*const allPokemonDB =*/ useSelector((state) => state.allPokemonDB);
   const dispatch = useDispatch()
   const [orderAlpha, setOrderAlpha] = useState('DEFAULT')
   const [orderAtta, setOrderAtta] = useState('DEFAULT')
@@ -19,9 +19,9 @@ const OrderFilter = () => {
     // console.log(value)
   }
 
-  const filterPokDB = allPokemonDB.filter(pok => pok.id.length > 4);
-  const handleMyPok = () => {
-    dispatch(filterDB(filterPokDB))
+  const handleMyPok = async () => {
+    await dispatch(getPokemonsDB())
+    dispatch(filterDB())
   }
 
   const handleReset = () => {

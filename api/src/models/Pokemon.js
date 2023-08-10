@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
 
     image:{
       type: DataTypes.STRING,
-      defaultValue: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg"
+      defaultValue: "https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png"
     },
 
     hp:{
