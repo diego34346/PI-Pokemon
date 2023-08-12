@@ -8,17 +8,17 @@ import Create from './views/Create/Create';
 import Detail from './views/Detail/Detail';
 import Nav from './components/Nav/Nav';
 
-
 function App() {
   const location = useLocation();
   return (  
     <div>
       <div>
-      {location.pathname !== "/" ? <Nav/> : "" }
-      </div> 
+        {location.pathname !== "/" ? <Nav/> : "" }
+      </div>
 
       <div className="App">
         <Switch> 
+          
           <Route exact path = '/' component={Landing} />
           <Route exact path = '/Home' component={Home} />
           <Route exact path = '/Create' component={Create} />

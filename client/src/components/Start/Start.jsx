@@ -6,7 +6,10 @@ const Start = () => {
   return (
     <div>
       <Link to={"/Home"}>
-        <button className={style.button}>Start</button>
+        <button 
+        className={style.button}>
+        <span className={style.span}>Start</span> 
+        </button>
       </Link>
     </div>
   );

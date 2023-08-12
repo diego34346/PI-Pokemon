@@ -16,7 +16,7 @@ const Search = ({ setCurrentPok }) => {
     setInputValue(event.target.value);
     setPokemonNotFound(false);
   };
-
+  
   const onSearch = () => {  
     if (inputValue.trim() !== "") {
       if (!isNaN(inputValue)) {
@@ -50,8 +50,6 @@ const Search = ({ setCurrentPok }) => {
   useEffect(() => { // al ejecutar el onSearch la accion actualiza el estado pokemonFilter:[], lo que dispara el useEffect lo que actualiza la prop currentPok por medio su funcion de actualizacion setCurrentPok, y currentPok es usada por los otros componentes que lo tienen como prop
     setCurrentPok(pokFilter);    
   }, [pokFilter, setCurrentPok, dispatch]);
-
-  
 
   const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {

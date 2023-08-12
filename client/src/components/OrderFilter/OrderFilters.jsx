@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { orderAlphabet, orderAttack, filterTypes, resetFilters, filterDB, getPokemonsDB } from "../../redux/actions";
+import style from "./OrderFilters.module.css";
 
 const OrderFilter = () => {
   
@@ -32,7 +33,7 @@ const OrderFilter = () => {
   }
 
   return (
-    <div>
+    <div className={style.filters} >
       <div>
         <select onChange={(event) => handleSelectChange(event, orderAlphabet, setOrderAlpha)} value={orderAlpha}>
           <option value="DEFAULT" disabled>Alphabetical</option> 

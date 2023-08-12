@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import style from './Nav.module.css'
 
 const Nav = () => {
-  // const dispatch = useDispatch();
 
   return (
     <nav className={style.nav}>

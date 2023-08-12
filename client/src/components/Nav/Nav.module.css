@@ -1,9 +1,13 @@
 .nav {
-  background-color: #0d2944;
+  background-color: #e70606;
   display: flex;
   flex-wrap: wrap; 
   flex-direction: row;
   align-items: center;
   justify-content: space-around; 
-  height: 90px;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
 }
+
