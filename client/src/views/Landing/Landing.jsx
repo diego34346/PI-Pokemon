@@ -14,7 +14,6 @@ const Landing = () => {
 
   return (
     <div className={style.landing} >
-      {/* <img src="" alt="" width="360" height="200" /> */}
       <Start />
     </div>
   );

@@ -1,8 +1,9 @@
 import Card from "../Card/Card";
+import style from './Cards.module.css'
 
 const Cards = ({ currentPok }) => {
   return (
-    <div>
+    <div className={style.cards} >
       {Array.isArray(currentPok) ? (   //Cuando hago una peticion a la API, "getPokemons" me devuelve un array
         currentPok.map((pok) => (
           <Card

@@ -11,3 +11,89 @@
   z-index: 1000;
 }
 
+.contExit{
+  display: flex; 
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-decoration:none;
+}
+
+.btnExit{
+  justify-content: center;
+  background: #ffffff00;
+  cursor: pointer;
+  border:#ffffff00; 
+  overflow: visible;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+}
+
+.spanExit{  
+  background: #ffffff00;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  overflow: visible;
+  color: rgb(0, 0, 0);
+  width: 35px;
+  height: 20px;
+  padding-top: 0px;
+}
+
+
+
+
+
+.contHome{
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration:none;
+  width: 300px;
+}
+.btnHome{
+  justify-content: center;
+  background: #ffffff00;
+  cursor: pointer;
+  border:#ffffff; 
+  overflow: visible;
+  padding: 0;
+}
+
+
+
+.contCreate{
+  display: flex; 
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-decoration:none;
+}
+
+.btnCreate{
+  justify-content: center;
+  background: #ffffff00;
+  cursor: pointer;
+  border:#ffffff00; 
+  overflow: visible;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+}
+
+.spanCreate{  
+  background: #ffffff00;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  overflow: visible;
+  color: rgb(0, 0, 0);
+  width: 50px;
+  height: 20px;
+  padding-top: 0px;
+}

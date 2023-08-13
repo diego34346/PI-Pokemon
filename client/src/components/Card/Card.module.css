@@ -1,4 +1,4 @@
-.Card {    
+.card {    
   background-color: #0d2944;
   width: fit-content;
   position: relative;
@@ -18,7 +18,7 @@
   max-width: 200px;
 }
 
-.Card img{
+.card img{
   border: 1px solid #26235c;
   width: 200px;
   margin-top: 20px;
@@ -29,11 +29,11 @@
   transition: transform 300ms ease;
 }
 
-.Card img:hover{
+.card img:hover{
   transform: scale(1.07);
 }
 
-.Card h1{
+.card h1{
   font-size: 15px;
   margin: 6px;
   color: rgb(249, 250, 249);
@@ -41,7 +41,7 @@
   font-weight: 400;
 }
 
-.Card h2{
+.card h2{
   font-size: 15px;
   margin: 6px;
   color: rgb(249, 250, 249);

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postPok } from "../../redux/actions";
 import validations from "./Validations";
+import style from './Form.module.css'
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -52,10 +53,11 @@ const Form = () => {
   };
   
   return (
-    <div>
-      <h1>CREATE YOUR POKEMON</h1>
+
+    <div className={style.contForm} >     
 
       <form action="" onSubmit={handleSubmit}>
+      <h1>CREATE YOUR POKEMON</h1>
 
         <div>
           <input

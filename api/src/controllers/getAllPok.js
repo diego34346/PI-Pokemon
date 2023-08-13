@@ -4,7 +4,8 @@ const getAllPok = async () => {
   try {
     const dataAPI = await getAllPokAPI();
     // const dataDB = await getAllPokDB();
-    return [...dataAPI /*, ...dataDB*/];
+    // console.log(dataAPI)
+    return dataAPI /*, ...dataDB*/;
     
   } catch (error) {
     console.log(error);

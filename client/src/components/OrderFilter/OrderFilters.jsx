@@ -33,8 +33,10 @@ const OrderFilter = () => {
   }
 
   return (
-    <div className={style.filters} >
-      <div>
+    <div className={style.contFilters} >
+
+      <div className={style.ordFil} >
+        <h2>Filters</h2>
         <select onChange={(event) => handleSelectChange(event, orderAlphabet, setOrderAlpha)} value={orderAlpha}>
           <option value="DEFAULT" disabled>Alphabetical</option> 
           <option value="A">Order A - Z</option>
@@ -77,7 +79,7 @@ const OrderFilter = () => {
       </div>
 
       <div>
-        <button onClick={handleReset} >Reset</button>
+        <button onClick={handleReset}>Reset All Pokemon</button>
       </div>
     </div>
   )

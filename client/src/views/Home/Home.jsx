@@ -24,13 +24,14 @@ const Home = () => {
       <div className={style.nav}>
         {<Nav/>}
       </div>
-      <div>
+      <div className={style.order} >
         {<OrderFilter/>}
       </div>
 
-      <div>
+      <div >
         {<CardList pokCardList={pokCardList} />}
       </div>
+      
     </div>
   );
 };

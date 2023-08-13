@@ -4,7 +4,7 @@ const { getAllPokDB } = require("./getAllApi_Db");
 const getAllDb = async () => {
   try {
     const dataDB = await getAllPokDB();
-    return [...dataDB];
+    return dataDB;
     
   } catch (error) {
     console.log(error);

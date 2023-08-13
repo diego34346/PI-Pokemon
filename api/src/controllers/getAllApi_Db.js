@@ -34,14 +34,13 @@ const getAllPokAPI = async () => {
     //obtengo la data de cada pokemon por la sub Url
     const allPokemonsAPI = pokemons.map((pokemon) => objectApi(pokemon));
     // console.log(allPokemons)
-    return allPokemonsAPI;
+    return await allPokemonsAPI;
 
   } catch (error) {
     console.log(error);
     return error;
   }
 };
-
 
 // peticion usando promesas
 

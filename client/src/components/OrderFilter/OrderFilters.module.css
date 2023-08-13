@@ -1,3 +1,17 @@
-/* .filters{
-  margin-top: 5rem;
-} */
+.contFilters{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.ordFil{
+  margin-top: 10px;
+}
+
+.ordFil h2{
+  color: white;
+  margin: 0px;
+}
