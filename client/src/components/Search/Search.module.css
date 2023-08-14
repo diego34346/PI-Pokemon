@@ -1,6 +1,39 @@
-/* .search{
-  display: flex;    
+.contSearch{
+  display: flex;
   justify-content: center;
-  justify-content: flex-start;
   flex-direction: column;
-} */
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.btnSearch{
+  background-color: rgb(255, 255, 255);
+  width: 80px;
+  height: 27px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: .3s ease all;
+  border-radius: 13px;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+}
+
+.input{
+  width: 10em;
+  height: 25px;
+  border-radius: 13px;
+  border: 0px;
+  margin-right: 5px;
+}
+
+.p{
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

@@ -24,6 +24,7 @@ const Home = () => {
       <div className={style.nav}>
         {<Nav/>}
       </div>
+      
       <div className={style.order} >
         {<OrderFilter/>}
       </div>

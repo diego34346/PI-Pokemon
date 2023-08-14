@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getById } from "../../redux/actions";
-
+import style from './Detail.module.css'
 
 const DetailPok = () => {
   const dispatch = useDispatch()
@@ -15,61 +15,67 @@ const DetailPok = () => {
 
   const { name, image, hp, attack, defense, speed, height, weight, types} = pokemonFilter
 
-  return (
-    <div>
-      <div>
-        <h1>{name}</h1>
-        
-          {types && types.map((type) => (
-            <h2 key={type.name}> {type.name}</h2>
-          ))}
-        
+  return (    
+    <div className={style.contDetail}>
+      <div></div>
+      <div></div>
+      <div></div>
+
+      <div className={style.dataPok}>
         <div>
-            <img src={image} width={200} height={200} alt={name} />
+          <h1>{name}</h1>
         </div>
 
-        <div className="">
-          <section>            
-            <ul type="none" className="">
-              <li>
-                <span className="label">Height</span>
-                <div>
-                    <span className="value">{height / 10} m.</span>
-                </div>
-              </li>
-              <li>
-                <span className="label">Weight</span>
-                <div>
-                    <span className="value">{weight / 10} kg.</span>
-                </div>
-              </li>
-            </ul>
-          </section>
-            <section>
-              <p className="titleSection">Stats</p>
-              <div>
-                <div><span>{`Life: ${hp}`}</span></div>
-                <progress max='250' value={hp}>{hp}</progress>
-              </div>
-
-              <div>
-                <div><span>{`Attack: ${attack}`}</span></div>
-                <progress max='250' value={attack}>{attack}</progress>
-              </div>
-
-              <div>
-                <div><span>{`Defense: ${defense}`}</span></div>
-                <progress max='250' value={defense}>{defense}</progress>
-              </div>
-
-              <div>
-                <div><span>{`Speed: ${speed}`}</span></div>
-                <progress max='250' value={speed}>{speed}</progress>
-              </div>
-            </section>
+        <div>
+          <img src={image} width={200} height={200} alt={name} />
+        </div>
+        
+        <div className={style.types} >
+          {types && types.map((type) => (
+            <h2 key={type.name} className={style[type.name]} > {type.name}</h2>
+            ))}
         </div>
       </div>
-    </div>
+
+      <div className={style.statsPok}>
+        <section>            
+          <ul type="none" className={style.ul}>
+            <li>
+              <span><strong>Height: </strong></span>            
+              <span>{height / 10} m.</span>              
+            </li>
+            <li>
+              <span><strong>Weight: </strong></span>
+              <span>{weight / 10} kg.</span>              
+            </li>
+          </ul>
+        </section>
+          <section>
+            <div>
+              <div><span> <strong>Life:</strong> {hp}</span></div>
+              <progress max='250' value={hp}>{hp}</progress>
+            </div>
+
+            <div>
+              <div><span> <strong>Attack:</strong> {attack}</span></div>
+              <progress max='250' value={attack}>{attack}</progress>
+            </div>
+
+            <div>
+              <div><span> <strong>Defense:</strong> {defense}</span></div>
+              <progress max='250' value={defense}>{defense}</progress>
+            </div>
+
+            <div>
+              <div><span> <strong>Speed:</strong> {speed}</span></div>
+              <progress max='250' value={speed}>{speed}</progress>
+            </div>
+          </section>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>    
   )  
 }
 

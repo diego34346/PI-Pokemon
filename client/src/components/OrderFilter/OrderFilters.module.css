@@ -4,14 +4,86 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .ordFil{
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .ordFil h2{
   color: white;
-  margin: 0px;
+  margin: 10px;
 }
+
+.h2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.ordFil select{
+  border: 2px solid #ffffff64;
+  border-radius: 13px;
+  margin-right: 0.3rem; 
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding: 0.2rem 0.6rem;
+  width: 8rem;
+}
+
+.contReset{
+  margin: 20px;
+}
+
+.btnReset{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff00;
+  cursor: pointer;
+  border:#ffffff00; 
+  overflow: visible;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+}
+
+.spanReset{
+  font-size: medium;
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  overflow: visible;
+  width: 70px;
+  margin: 5px;
+}
+
+.btnMyPok{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff00;
+  cursor: pointer;
+  border:#ffffff00; 
+  overflow: visible;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+}
+
+.spanMyPok{
+  font-size: medium;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgb(255, 255, 255);
+  overflow: visible;
+  width: 60px;
+  margin: 5px;
+}
+
+

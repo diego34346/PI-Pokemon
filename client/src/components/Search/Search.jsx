@@ -21,11 +21,11 @@ const Search = ({ setCurrentPok }) => {
     if (inputValue.trim() !== "") {
       if (!isNaN(inputValue)) {
         const id = parseInt(inputValue);
-        if ((id >= 1 && id <= 1010) || (id >= 10001 && id <= 10271)) {
+        if ((id >= 1 && id <= 1010) /*|| (id >= 10001 && id <= 10271)*/) {
           dispatch(getByNameById(inputValue));
           setInputValue("");
         } else {
-          window.alert('Id must be between 0 - 1010 and 10001 - 10271');
+          window.alert('Id must be between 0 - 1010');
         }
       } else {
         dispatch(getByNameById(inputValue))
@@ -59,18 +59,26 @@ const Search = ({ setCurrentPok }) => {
 	}
 
   return (
-    <div className={style.search}>
-      <div>
+    <div className={style.contSearch}>
+      <div className={style.search}>
         <input
-          placeholder="Search"
+          className={style.input}
+          placeholder="  Id or Name"
           type="text"
           onKeyUp={handleKeyDown}
           value={inputValue}
           onChange={handleChange}
         />
-        <button type="button" onClick={onSearch}>Search</button>
+        <button 
+        className={style.btnSearch} 
+        type="button" 
+        onClick={onSearch} 
+        >Search
+        </button>
       </div>
-      {pokemonNotFound && <p>Pokemon not found...</p>}
+      <div className={style.p} >
+        {pokemonNotFound && <span>Pokemon not found...</span>}
+      </div>
     </div>
   );
 };

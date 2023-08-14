@@ -1,11 +1,22 @@
 .contForm{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  height: 35rem;
+  align-content: center; 
+  height: 100vh;  
 }
 
-.contEmpty{
-  height: 5rem;
+.contForm div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+} 
+
+.contForm p{
+  margin: 0px;
 }

@@ -70,8 +70,8 @@ const Form = () => {
             autoComplete="off"
             className=""
           />
-        </div>
         {errors.name && <p className="error-input">{errors.name}</p>}
+        </div>
 
         <div>
           <input
@@ -85,8 +85,8 @@ const Form = () => {
             required
             className=""        
           />
-        </div>
         {errors.hp && <p className="error-input">{errors.hp}</p>}
+        </div>
 
         <div>
           <input 
@@ -100,8 +100,8 @@ const Form = () => {
             required
             className=""
           />
-        </div>
         {errors.attack && <p className="error-input">{errors.attack}</p>}
+        </div>
 
         <div>
           <input 
@@ -115,8 +115,8 @@ const Form = () => {
             required
             className=""
           />
-        </div>
         {errors.defense && <p className="error-input">{errors.defense}</p>}
+        </div>
 
         <div>
           <input 
@@ -130,8 +130,8 @@ const Form = () => {
             required
             className=""
           />  
-        </div>
         {errors.speed && <p className="error-input">{errors.speed}</p>}
+        </div>
 
         <div>
           <input 
@@ -145,8 +145,8 @@ const Form = () => {
             required
             className=""
           />
-        </div>
         {errors.height && <p className="error-input">{errors.height}</p>}
+        </div>
 
         <div>
           <input 
@@ -160,8 +160,8 @@ const Form = () => {
             required
             className="" 
           />
-        </div>
         {errors.weight && <p className="error-input">{errors.weight}</p>}
+        </div>
 
         <div>
           <select 
