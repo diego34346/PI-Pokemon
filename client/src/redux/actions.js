@@ -111,7 +111,7 @@ export const postPok = (newPokemon) => {
         types: [newPokemon.type1 , newPokemon.type2]
       }
       const post = await axios.post(`${URL}/pokemons`,DataPokemon)
-      return console.log(post.data)    
+      return window.alert(post.data)    
     } catch (error) {
       console.log(error)      
     }

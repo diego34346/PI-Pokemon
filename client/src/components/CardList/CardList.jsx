@@ -8,14 +8,14 @@ import Pagination from "../Pagination/Pagination";
 import style from './CardList.module.css'
 
 const CardList = ({ pokCardList }) => {
-  // const RenderCards = 12;
+  const RenderCards = 12;
   const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de PokCardList para renderizar
   const [pokemonNotFound, setPokemonNotFound] = useState(false)
   const dispatch = useDispatch();
   const allTypes = useSelector((state) => state.allTypes);
 
   useEffect(() => {
-    setCurrentPok([...pokCardList]/*./splice(0, RenderCards)*/); //Se hace una copia del array pokCardList para extraer los elementos del valor que tenga RenderCards
+    setCurrentPok([...pokCardList].splice(0, RenderCards)); //Se hace una copia del array pokCardList para extraer los elementos del valor que tenga RenderCards
   }, [pokCardList]);
 
   useEffect(() => {
@@ -31,6 +31,10 @@ const CardList = ({ pokCardList }) => {
       </div>
 
       <div>        
+      <Pagination pokCardList={pokCardList} setCurrentPok={setCurrentPok} />
+      </div>
+      
+      <div>        
         {currentPok.length > 0 || !pokemonNotFound ? (
           <Cards currentPok={currentPok} />
         ) : (
@@ -38,9 +42,6 @@ const CardList = ({ pokCardList }) => {
         )}
       </div>
 
-      <div>        
-      <Pagination pokCardList={pokCardList} setCurrentPok={setCurrentPok} />
-      </div>
       
     </div>
   );

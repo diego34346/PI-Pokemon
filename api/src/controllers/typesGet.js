@@ -39,7 +39,8 @@ const typesGet = async () => {
 const routeGetTypes = async (req, res) => {
   try {
     const getAllTypes = await typesGet();
-    return res.status(200).json(getAllTypes);
+    getTypesFilter = getAllTypes.filter(type => type !== "unknown" && type !== "shadow")
+    return res.status(200).json(getTypesFilter);
   } catch (error) {
     return res.status(400).json("types not found");
   }

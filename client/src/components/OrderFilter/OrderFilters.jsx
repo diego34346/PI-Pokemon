@@ -40,11 +40,13 @@ const OrderFilter = () => {
     <div className={style.contFilters} >
 
       <div className={style.ordFil} >
+
         <div className={style.h2} >
-        <img src={Alphabet} width={50} height={50} alt="Reset"/>
-        <h2>Order and filter</h2>
-        <img src={Attack} width={50} height={50} alt="Reset"/>
+          <img src={Alphabet} width={50} height={50} alt="Reset"/>
+          <h2>Order and filter</h2>
+          <img src={Attack} width={50} height={50} alt="Reset"/>
         </div>
+
         <select onChange={(event) => handleSelectChange(event, orderAlphabet, setOrderAlpha)} value={orderAlpha}>
           <option value="DEFAULT" disabled>Alphabetical</option> 
           <option value="A">Order A - Z</option>

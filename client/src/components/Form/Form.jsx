@@ -53,147 +53,147 @@ const Form = () => {
   };
   
   return (
+    <div>      
+      <form action="form" onSubmit={handleSubmit} className={style.contForm}>
+        
+        <h1>CREATE YOUR POKEMON</h1>
 
-    <div className={style.contForm} >     
+        <div className={style.contData}>
+          <div className={style.nameStats}>
+            <div className={style.contIE} >
+              <input
+                type="text"
+                name="name"
+                onChange={handleInputChange}
+                placeholder="Name"
+                value={input.name}
+                required
+                autoComplete="off"            
+                />
+            {errors.name && <p className={style.errorInput} >{errors.name}</p>}
+            </div>
 
-      <form action="" onSubmit={handleSubmit}>
-      <h1>CREATE YOUR POKEMON</h1>
+            <div className={style.contIE}>
+              <input
+                type="number"
+                name="hp"
+                onChange={handleInputChange}
+                value={input.hp}
+                placeholder="Life"
+                min='0'
+                max='150'
+                required                    
+                />
+            {errors.hp && <p className={style.errorInput}>{errors.hp}</p>}
+            </div>
 
-        <div>
-          <input
-            type="text"
-            name="name"
-            onChange={handleInputChange}
-            placeholder="Name"
-            value={input.name}
-            required
-            autoComplete="off"
-            className=""
-          />
-        {errors.name && <p className="error-input">{errors.name}</p>}
+            <div className={style.contIE}>
+              <input 
+                type="number"
+                name="attack"
+                onChange={handleInputChange}
+                value={input.attack}
+                placeholder="Attack"
+                min='0'
+                max='150'
+                required            
+                />
+            {errors.attack && <p className={style.errorInput}>{errors.attack}</p>}
+            </div>
+
+            <div className={style.contIE}>
+              <input 
+                type="number"
+                name="defense"
+                onChange={handleInputChange}
+                value={input.defense}
+                placeholder="Defense"
+                min='0'
+                max='150'
+                required            
+                />
+            {errors.defense && <p className={style.errorInput}>{errors.defense}</p>}
+            </div>
+
+            <div className={style.contIE}>
+              <input 
+                type="number"
+                name="speed"
+                onChange={handleInputChange}
+                value={input.speed}
+                placeholder="Speed"
+                min='0'
+                max='150'
+                required            
+                />  
+            {errors.speed && <p className={style.errorInput}>{errors.speed}</p>}
+            </div>
+
+            <div className={style.contIE}>
+              <input 
+                type="number"
+                name="height"
+                onChange={handleInputChange}
+                value={input.height}
+                placeholder="Height"
+                min='0'
+                max='3000'
+                required            
+                />
+            {errors.height && <p className={style.errorInput}>{errors.height}</p>}
+            </div>
+
+            <div className={style.contIE}>
+              <input 
+                type="number"
+                name="weight"
+                onChange={handleInputChange}
+                value={input.weight}
+                placeholder="Weight"
+                min='0'
+                max='3000'
+                required             
+                />
+            {errors.weight && <p className={style.errorInput}>{errors.weight}</p>}
+            </div>
+          </div>
+
+          <div  className={style.typeOne}>
+            <div className={style.contSel} >
+              <select 
+                name="type1"
+                onChange={handleInputChange}
+                
+                >
+                <option value="Type One">Type One</option>
+                {allTypes.map((type)=>(
+                  <option value={type} key={type} > {type} </option>
+                  ))}
+              </select>
+            </div>
+          </div>
+          
+          <div className={style.typeTwo}> 
+            <div className={style.contSel}>
+              <select 
+                name="type2"
+                onChange={handleInputChange}
+                
+                >
+                <option value="Type Two">Type Two</option>
+                {allTypes.map((type)=>(
+                  <option value={type} key={type} > {type} </option>
+                  ))}
+              </select>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <input
-            type="number"
-            name="hp"
-            onChange={handleInputChange}
-            value={input.hp}
-            placeholder="Life"
-            min='0'
-            max='150'
-            required
-            className=""        
-          />
-        {errors.hp && <p className="error-input">{errors.hp}</p>}
-        </div>
-
-        <div>
-          <input 
-            type="number"
-            name="attack"
-            onChange={handleInputChange}
-            value={input.attack}
-            placeholder="Attack"
-            min='0'
-            max='150'
-            required
-            className=""
-          />
-        {errors.attack && <p className="error-input">{errors.attack}</p>}
-        </div>
-
-        <div>
-          <input 
-            type="number"
-            name="defense"
-            onChange={handleInputChange}
-            value={input.defense}
-            placeholder="Defense"
-            min='0'
-            max='150'
-            required
-            className=""
-          />
-        {errors.defense && <p className="error-input">{errors.defense}</p>}
-        </div>
-
-        <div>
-          <input 
-            type="number"
-            name="speed"
-            onChange={handleInputChange}
-            value={input.speed}
-            placeholder="Speed"
-            min='0'
-            max='150'
-            required
-            className=""
-          />  
-        {errors.speed && <p className="error-input">{errors.speed}</p>}
-        </div>
-
-        <div>
-          <input 
-            type="number"
-            name="height"
-            onChange={handleInputChange}
-            value={input.height}
-            placeholder="Height"
-            min='0'
-            max='3000'
-            required
-            className=""
-          />
-        {errors.height && <p className="error-input">{errors.height}</p>}
-        </div>
-
-        <div>
-          <input 
-            type="number"
-            name="weight"
-            onChange={handleInputChange}
-            value={input.weight}
-            placeholder="Weight"
-            min='0'
-            max='3000'
-            required
-            className="" 
-          />
-        {errors.weight && <p className="error-input">{errors.weight}</p>}
-        </div>
-
-        <div>
-          <select 
-            name="type1"
-            onChange={handleInputChange}
-            className=""
-          >
-            <option value="Type One">Type One</option>
-            {allTypes.map((type)=>(
-              <option value={type} key={type} className="" > {type} </option>
-            ))}
-          </select>
-        </div>
-
-        <div>
-          <select 
-            name="type2"
-            onChange={handleInputChange}
-            className=""
-          >
-            <option value="Type Two">Type Two</option>
-            {allTypes.map((type)=>(
-              <option value={type} key={type} className="" > {type} </option>
-            ))}
-          </select>
-        </div>
-
-        <button 
-          type="submit"
-          disabled={disabled}
-          >CREATE
-        </button>
+          <button 
+            type="submit"
+            disabled={disabled}
+            >CREATE
+          </button>
 
       </form>
     </div>

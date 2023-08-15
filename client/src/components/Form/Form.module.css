@@ -1,22 +1,88 @@
 .contForm{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
   align-content: center; 
-  height: 100vh;  
+  overflow: visible;
+  height: 100vh;
 }
 
-.contForm div{
+.contForm p{
+  margin: 0px;
+}
+
+.contData{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.contForm button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 13px;  
+  width: 10rem;
+  height: 30px;
+  color: rgb(255, 255, 255);  
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  overflow: visible;
+  cursor: pointer;
+  position: relative;
+  margin-top: 10px;
+}
+
+.contForm button:disabled{
+  background-color: rgb(149, 149, 149);
+  border: 3px solid rgb(149, 149, 149);
+  color: rgb(198, 198, 198);
+}
+
+.contIE{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
-} 
+  position: relative;
+  margin-bottom: 20px;
+}
 
-.contForm p{
-  margin: 0px;
+.errorInput{
+  position: absolute;
+  top: 100%;
+  color: rgb(236, 0, 0);
+  font-size: 13px;  
+  overflow: visible;
+}
+
+.inputName{
+  width: 20rem;
+}
+
+.contIE input{
+  border-radius: 1rem;
+  font-size: 1rem;  
+  padding: 1px;
+  width: 10rem;
+  text-align: center;
+}
+
+.contSel select{
+  border: 2px solid #00000064;
+  border-radius: 13px;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding: 0.2rem 0.6rem;
+  width: 8rem;
+  margin-left: 20px;
 }
