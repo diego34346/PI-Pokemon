@@ -1,0 +1,21 @@
+.contPag{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 10px 15px 5px 15px;
+}
+
+.contPag button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.contPag span{
+  margin: 1px 5px 0px 5px;;
+}

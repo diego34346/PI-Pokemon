@@ -59,7 +59,7 @@ const Form = () => {
         <h1>CREATE YOUR POKEMON</h1>
 
         <div className={style.contData}>
-          <div className={style.nameStats}>
+          <div>
             <div className={style.contIE} >
               <input
                 type="text"
@@ -158,7 +158,7 @@ const Form = () => {
             </div>
           </div>
 
-          <div  className={style.typeOne}>
+          <div>
             <div className={style.contSel} >
               <select 
                 name="type1"
@@ -173,7 +173,7 @@ const Form = () => {
             </div>
           </div>
           
-          <div className={style.typeTwo}> 
+          <div> 
             <div className={style.contSel}>
               <select 
                 name="type2"

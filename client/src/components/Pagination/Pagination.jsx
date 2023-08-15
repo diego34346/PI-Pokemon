@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import style from './Pagination.module.css'
+import Next from '../../assets/Next.png'
+import Prev from '../../assets/Prev.png'
 
 const Pagination = ({ pokCardList, setCurrentPok }) => {
   const RenderCards = 12;
@@ -24,10 +27,26 @@ const Pagination = ({ pokCardList, setCurrentPok }) => {
 
   return (
     <div>
-      <div>
-        <button onClick={() => prev()}>Prev</button>
+      <div className={style.contPag} >
+        <button onClick={() => prev()} >
+        <img
+        src={Prev}
+        width={30}
+        height={30}
+        alt="Prev"/>
+        <span>Prev</span>
+        </button>
+
         <label> {actualPage + 1} </label>
-        <button onClick={() => next()}>Next</button>
+
+        <button onClick={() => next()} >
+        <span>Next</span>
+        <img
+        src={Next}
+        width={30}
+        height={30}
+        alt="Next"/>
+        </button>
       </div>
     </div>
   );
