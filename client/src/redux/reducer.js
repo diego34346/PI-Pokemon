@@ -98,10 +98,10 @@ const rootReducer = (state = initialState, action) => {
 
     case RESET_FILTERS:
       const sortedPokemon = [...state.allPokemon].sort((a, b) => a.id - b.id);
-      const slicedPokemon = sortedPokemon.slice(0, 12);    
+      // const slicedPokemon = sortedPokemon.slice(0, 12);  
       return {
         ...state,
-        pokemonFilter: slicedPokemon,
+        pokemonFilter: sortedPokemon,
       };
     
     case CLEAN_FILTER:

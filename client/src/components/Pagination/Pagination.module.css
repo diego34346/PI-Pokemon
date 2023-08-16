@@ -1,21 +1,25 @@
-.contPag{
+.main {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 10px 15px 5px 15px;
-}
-
-.contPag button{
-  display: flex;
-  flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  align-content: center;
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
 }
-
-.contPag span{
-  margin: 1px 5px 0px 5px;;
+.button {
+  background-color: #f3f3f3;
+  color: #000000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+  margin-top: 20px;
+}
+.button:hover {
+  transform: scale(1.2);
+  background-color: #e60000;
+}
+.selected {
+  background-color: #e60000;
 }

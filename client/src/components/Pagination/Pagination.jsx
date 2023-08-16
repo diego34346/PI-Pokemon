@@ -1,55 +1,46 @@
-import React from "react";
 import { useState } from "react";
-import style from './Pagination.module.css'
-import Next from '../../assets/Next.png'
-import Prev from '../../assets/Prev.png'
+import { useSelector } from "react-redux";
+import Cards from "../Cards/Cards";
+import style from "./Pagination.module.css";
 
-const Pagination = ({ pokCardList, setCurrentPok }) => {
-  const RenderCards = 12;
-  const [actualPage, setActualPage] = useState(0);
+const Pagination = () => {
+  const allPokemons = useSelector((state) => state.pokemonFilter);
+  const [page, setPage] = useState(1);
+  const render = 12;
+  const totalpages = Math.ceil(allPokemons.length / render);
 
-  const next = () => {
-    const allpokemon = pokCardList.length;
-    const next = actualPage + 1;
-    const index = next * RenderCards;
-    if (index > allpokemon) return;
-    setCurrentPok([...pokCardList].splice(index, RenderCards));
-    setActualPage(next);
+  const paginatedPokemon = allPokemons.slice(
+    (page - 1) * render,
+    page * render
+  );
+
+  const handleClick = (event) => {
+    setPage(event.target.value);
   };
 
-  const prev = () => {
-    const prev = actualPage - 1;
-    if (prev < 0) return;
-    const index = prev * RenderCards;
-    setCurrentPok([...pokCardList].splice(index, RenderCards));
-    setActualPage(prev);
-  };
+  const buttonI = [];
+  for (let i = 1; i <= totalpages; i++) {
+    buttonI.push(i);
+  }
 
-  return (
+  return (    
     <div>
-      <div className={style.contPag} >
-        <button onClick={() => prev()} >
-        <img
-        src={Prev}
-        width={30}
-        height={30}
-        alt="Prev"/>
-        <span>Prev</span>
-        </button>
-
-        <label> {actualPage + 1} </label>
-
-        <button onClick={() => next()} >
-        <span>Next</span>
-        <img
-        src={Next}
-        width={30}
-        height={30}
-        alt="Next"/>
-        </button>
+      <div className={style.main}>
+        {buttonI.map((i) => (
+          <button
+            className={`${style.button} ${i === parseInt(page) ? style.selected : ""}`}
+            key={i}
+            value={i}
+            onClick={handleClick}
+          >
+            {i}
+          </button>
+        ))}
+      </div>
+      <div>
+        <Cards currentPok={paginatedPokemon}></Cards>
       </div>
     </div>
   );
 };
-
 export default Pagination;

@@ -72,7 +72,7 @@ export const getByNameById = (value) => {
       const reqByName = await axios.get(endpoint);
       return dispatch({
         type: GET_BY_NAME,
-        payload: reqByName.data
+        payload: [reqByName.data]
       })
     } catch (error) {
       // console.log('error')

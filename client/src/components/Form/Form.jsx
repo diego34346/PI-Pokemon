@@ -38,7 +38,7 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();    
     dispatch(postPok(input));
-    // dispatch(getPokemonsDB())
+    // dispatch(getPokemonsDB()) Hago el dispatch al pulsar en el boton My Pokemon
     setInput({
       name: "",
       hp: "",

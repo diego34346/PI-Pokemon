@@ -5,6 +5,8 @@
   align-items: center;
   background-color: #ffffff;
   width: fit-content;
+  min-height: 16rem;
+
   position: relative;
   padding: 10px;
   margin: 18px; 

@@ -1,15 +1,13 @@
 import React from "react";
-import Cards from "../Cards/Cards";
+import Search from "../Search/Search";
+import Pagination from "../Pagination/Pagination";
 import { useEffect, useState } from "react";
 import { getTypes } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import Search from "../Search/Search";
-import Pagination from "../Pagination/Pagination";
 import style from './CardList.module.css'
 
 const CardList = ({ pokCardList }) => {
   const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de PokCardList para renderizar
-  const [pokemonNotFound, setPokemonNotFound] = useState(false)
   const dispatch = useDispatch();
   const allTypes = useSelector((state) => state.allTypes);
 
@@ -22,21 +20,12 @@ const CardList = ({ pokCardList }) => {
   return (
     <div>
       <div className={style.contSearch} >
-        <Search setCurrentPok={setCurrentPok} setPokemonNotFound={setPokemonNotFound}/>
+        <Search setCurrentPok={setCurrentPok}/>
       </div>
 
       <div>        
-      <Pagination pokCardList={pokCardList} setCurrentPok={setCurrentPok} />
+      <Pagination pokCardList={currentPok} setCurrentPok={setCurrentPok} />
       </div>
-      
-      <div>        
-        {currentPok.length > 0 || !pokemonNotFound ? (
-          <Cards currentPok={currentPok} />
-        ) : (
-          "Pokemon Not Found"
-        )}
-      </div>
-
       
     </div>
   );
