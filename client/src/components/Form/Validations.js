@@ -9,28 +9,28 @@ const validations = (input) => {
     errors.hp = `"Life" can't by empty`;
   }
   if (input.hp > 250) {
-    errors.hp = `Must be less than 150`;
+    errors.hp = `Must be less than 250`;
   }
 
   if (!input.attack) {
     errors.attack = `"Attack" can't by empty`;
   }
   if (input.attack > 250) {
-    errors.attack = `Must be less than 150`;
+    errors.attack = `Must be less than 250`;
   }
 
   if (!input.defense) {
     errors.defense = `"Defense" can't by empty`;
   }
   if (input.defense > 250) {
-    errors.defense = `Must be less than 150`;
+    errors.defense = `Must be less than 250`;
   }
 
   if (!input.speed) {
     errors.speed = `"Speeed" can't by empty`;
   }
   if (input.speed > 250) {
-    errors.speed = `Must be less than 150`;
+    errors.speed = `Must be less than 250`;
   }
 
   if (!input.height) {

@@ -13,7 +13,7 @@ const DetailPok = () => {
     dispatch(getById(id))
   },[dispatch, id]) 
 
-  const { name, image, hp, attack, defense, speed, height, weight, types} = pokemonFilter
+  const { name, image, hp, attack, defense, speed, height, weight, types } = pokemonFilter
 
   return (    
     <div className={style.contDetail}>

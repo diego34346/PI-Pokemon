@@ -81,7 +81,7 @@ const Form = () => {
                 value={input.hp}
                 placeholder="Life"
                 min='0'
-                max='150'
+                max='250'
                 required                    
                 />
             {errors.hp && <p className={style.errorInput}>{errors.hp}</p>}
@@ -95,7 +95,7 @@ const Form = () => {
                 value={input.attack}
                 placeholder="Attack"
                 min='0'
-                max='150'
+                max='250'
                 required            
                 />
             {errors.attack && <p className={style.errorInput}>{errors.attack}</p>}
@@ -109,7 +109,7 @@ const Form = () => {
                 value={input.defense}
                 placeholder="Defense"
                 min='0'
-                max='150'
+                max='250'
                 required            
                 />
             {errors.defense && <p className={style.errorInput}>{errors.defense}</p>}
@@ -123,7 +123,7 @@ const Form = () => {
                 value={input.speed}
                 placeholder="Speed"
                 min='0'
-                max='150'
+                max='250'
                 required            
                 />  
             {errors.speed && <p className={style.errorInput}>{errors.speed}</p>}

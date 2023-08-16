@@ -4,29 +4,28 @@ import Cards from "../Cards/Cards";
 import style from "./Pagination.module.css";
 
 const Pagination = () => {
-  const allPokemons = useSelector((state) => state.pokemonFilter);
+  const pokemonFilter = useSelector((state) => state.pokemonFilter);
   const [page, setPage] = useState(1);
   const render = 12;
-  const totalpages = Math.ceil(allPokemons.length / render);
+  const totalpages = Math.ceil(pokemonFilter.length / render);
 
-  const paginatedPokemon = allPokemons.slice(
-    (page - 1) * render,
-    page * render
-  );
+  const paginatedPokemon = Array.isArray(pokemonFilter)
+  ? pokemonFilter.slice((page - 1) * render, page * render)
+  : [];
 
   const handleClick = (event) => {
     setPage(event.target.value);
   };
 
-  const buttonI = [];
+  const buttonSelect = [];
   for (let i = 1; i <= totalpages; i++) {
-    buttonI.push(i);
+    buttonSelect.push(i);
   }
 
   return (    
     <div>
       <div className={style.main}>
-        {buttonI.map((i) => (
+        {buttonSelect.map((i) => (
           <button
             className={`${style.button} ${i === parseInt(page) ? style.selected : ""}`}
             key={i}
