@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Cards from "../Cards/Cards";
 import style from "./Pagination.module.css";
@@ -13,8 +13,12 @@ const Pagination = () => {
   ? pokemonFilter.slice((page - 1) * render, page * render)
   : [];
 
+  useEffect(() => {
+    setPage(1); // Cambiar la página a 1 cuando cambie pokemonFilter
+  }, [pokemonFilter]);
+
   const handleClick = (event) => {
-    setPage(event.target.value);
+    setPage(parseInt(event.target.value));
   };
 
   const buttonSelect = [];
@@ -27,7 +31,7 @@ const Pagination = () => {
       <div className={style.main}>
         {buttonSelect.map((i) => (
           <button
-            className={`${style.button} ${i === parseInt(page) ? style.selected : ""}`}
+            className={`${style.button} ${i === (page) ? style.selected : ""}`}
             key={i}
             value={i}
             onClick={handleClick}

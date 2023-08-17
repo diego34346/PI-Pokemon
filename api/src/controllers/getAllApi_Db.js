@@ -26,7 +26,7 @@ const objectApi = (pokemon) => {
 
 const getAllPokAPI = async () => {
   try {
-    const firstReq = await axios.get(`${URL_API}?offset=0&limit=40`);
+    const firstReq = await axios.get(`${URL_API}?offset=0&limit=20`);
     const secondReq = firstReq.data.results.map((obj) => axios.get(obj.url));
     const dataPokemons = await Promise.all(secondReq);
     let pokemons = dataPokemons.map((obj) => obj.data);

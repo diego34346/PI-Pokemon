@@ -19,6 +19,9 @@
   justify-content: space-around;
   align-items: flex-start;
   align-content: flex-start;
+  overflow: visible;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .contForm button{

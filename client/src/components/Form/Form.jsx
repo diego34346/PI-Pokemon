@@ -35,6 +35,16 @@ const Form = () => {
     setErrors(validations({ ...input, [event.target.name]: event.target.value }));    
   };
 
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setInput((state) => ({ ...state, [name]: value }));
+  //   setErrors((prevErrors) => ({
+  //     ...prevErrors,
+  //     [name]: validations({ ...input, [name]: value })[name], // Validar solo el campo actual
+  //   }));     
+  // };
+
+
   const handleSubmit = (event) => {
     event.preventDefault();    
     dispatch(postPok(input));
