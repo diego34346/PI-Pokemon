@@ -8,42 +8,39 @@ import style from './Form.module.css'
 const Form = () => {
   const dispatch = useDispatch();
   const allTypes = useSelector((state) => state.allTypes)
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    name: " ",
+    hp: " ",
+    attack: " ",
+    defense: " ",
+    speed: " ",
+    height: " ",
+    weight: "  ",
+    type1: " ",
+  });
   const [input, setInput] = useState({
     name: "",
     hp: "",
     attack: "",
     defense: "",
     speed: "",
-    weight: "",
     height: "",
+    weight: "",
     type1: "",
     type2: "",
   });
 
-  const [disabled, setDisabled] = useState(false);  
-  useEffect(() => {
-    if ( Object.keys(errors).length === 0) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  }, [errors]);
-
   const handleInputChange = (event) => {
-    setInput((state) => ({...state, [event.target.name]: event.target.value, }));
-    setErrors(validations({ ...input, [event.target.name]: event.target.value }));    
+    const fieldName = event.target.name;
+    const fieldValue = event.target.value;
+  
+    setInput((state) => ({ ...state, [fieldName]: fieldValue }));
+    const fieldErrors = validations({ ...input, [fieldName]: fieldValue });
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [fieldName]: fieldErrors[fieldName] || "",
+    }));
   };
-
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setInput((state) => ({ ...state, [name]: value }));
-  //   setErrors((prevErrors) => ({
-  //     ...prevErrors,
-  //     [name]: validations({ ...input, [name]: value })[name], // Validar solo el campo actual
-  //   }));     
-  // };
-
 
   const handleSubmit = (event) => {
     event.preventDefault();    
@@ -61,6 +58,25 @@ const Form = () => {
       type2: "",
     })    
   };
+
+  const [disabled, setDisabled] = useState(false);
+  useEffect(() => {
+    const expectedEmptyErrors = {
+      name: "",
+      hp: "",
+      attack: "",
+      defense: "",
+      speed: "",
+      weight: "",
+      height: "",
+      type1: "",
+      type2: "",
+    };
+    const areExpectedEmptyErrors = Object.keys(errors).every(
+      key => errors[key] === expectedEmptyErrors[key]
+    );
+    setDisabled(!areExpectedEmptyErrors);
+  }, [errors]);
   
   return (
     <div>      

@@ -75,7 +75,7 @@ const validations = (input) => {
   }
 
 
-  if (!input.type1){
+  if (!input.type1 || input.type1 === "Type One"){
     errors.type1 = `"Type" can't by empty`
   }
 
