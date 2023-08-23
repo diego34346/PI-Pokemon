@@ -6,8 +6,9 @@ import { getTypes } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import style from './CardList.module.css'
 
+
 const CardList = ({ pokCardList }) => {
-  const [currentPok, setCurrentPok] = useState(pokCardList); //Le asigno el valor de PokCardList para renderizar
+  const [currentPok, setCurrentPok] = useState(pokCardList); 
   const dispatch = useDispatch();
   const allTypes = useSelector((state) => state.allTypes);
 
